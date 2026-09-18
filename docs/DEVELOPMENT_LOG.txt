@@ -1,0 +1,28 @@
+EXAMPLE:
+
+## 2026-09-10 — Project Initialization
+
+### What I did
+- Defined the core concept
+- Decided the app will combine movie/TV tracking with a passport-style progression system
+- Identified the primary users
+- Started planning the visual direction
+
+### Decisions
+- The application will prioritize personal/shared use over large-scale social functionality.
+
+### Why
+The app is intended primarily for two users, so features such as large-scale
+social feeds and high-volume infrastructure aren't currently valuable.
+
+### Problems / Questions
+- What should the "passport" system actually track?
+- How should TV series progress be represented?
+- What should the MVP contain?
+
+### Next
+- Design the information architecture
+- Sketch the main screens
+- Define the data model
+
+
