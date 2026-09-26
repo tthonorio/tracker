@@ -228,9 +228,9 @@ export type RecommendationWhereInput = {
   receiverId?: Prisma.IntFilter<"Recommendation"> | number
   mediaId?: Prisma.IntFilter<"Recommendation"> | number
   createdAt?: Prisma.DateTimeFilter<"Recommendation"> | Date | string
-  sender?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  receiver?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   media?: Prisma.XOR<Prisma.MediaScalarRelationFilter, Prisma.MediaWhereInput>
+  receiver?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  sender?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type RecommendationOrderByWithRelationInput = {
@@ -239,9 +239,9 @@ export type RecommendationOrderByWithRelationInput = {
   receiverId?: Prisma.SortOrder
   mediaId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  sender?: Prisma.UserOrderByWithRelationInput
-  receiver?: Prisma.UserOrderByWithRelationInput
   media?: Prisma.MediaOrderByWithRelationInput
+  receiver?: Prisma.UserOrderByWithRelationInput
+  sender?: Prisma.UserOrderByWithRelationInput
 }
 
 export type RecommendationWhereUniqueInput = Prisma.AtLeast<{
@@ -253,9 +253,9 @@ export type RecommendationWhereUniqueInput = Prisma.AtLeast<{
   receiverId?: Prisma.IntFilter<"Recommendation"> | number
   mediaId?: Prisma.IntFilter<"Recommendation"> | number
   createdAt?: Prisma.DateTimeFilter<"Recommendation"> | Date | string
-  sender?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  receiver?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   media?: Prisma.XOR<Prisma.MediaScalarRelationFilter, Prisma.MediaWhereInput>
+  receiver?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  sender?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
 export type RecommendationOrderByWithAggregationInput = {
@@ -284,9 +284,9 @@ export type RecommendationScalarWhereWithAggregatesInput = {
 
 export type RecommendationCreateInput = {
   createdAt?: Date | string
-  sender: Prisma.UserCreateNestedOneWithoutRecommendationsSentInput
-  receiver: Prisma.UserCreateNestedOneWithoutRecommendationsReceivedInput
   media: Prisma.MediaCreateNestedOneWithoutRecommendationsInput
+  receiver: Prisma.UserCreateNestedOneWithoutRecommendationsReceivedInput
+  sender: Prisma.UserCreateNestedOneWithoutRecommendationsSentInput
 }
 
 export type RecommendationUncheckedCreateInput = {
@@ -299,9 +299,9 @@ export type RecommendationUncheckedCreateInput = {
 
 export type RecommendationUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sender?: Prisma.UserUpdateOneRequiredWithoutRecommendationsSentNestedInput
-  receiver?: Prisma.UserUpdateOneRequiredWithoutRecommendationsReceivedNestedInput
   media?: Prisma.MediaUpdateOneRequiredWithoutRecommendationsNestedInput
+  receiver?: Prisma.UserUpdateOneRequiredWithoutRecommendationsReceivedNestedInput
+  sender?: Prisma.UserUpdateOneRequiredWithoutRecommendationsSentNestedInput
 }
 
 export type RecommendationUncheckedUpdateInput = {
@@ -380,13 +380,6 @@ export type RecommendationSumOrderByAggregateInput = {
   mediaId?: Prisma.SortOrder
 }
 
-export type RecommendationCreateNestedManyWithoutSenderInput = {
-  create?: Prisma.XOR<Prisma.RecommendationCreateWithoutSenderInput, Prisma.RecommendationUncheckedCreateWithoutSenderInput> | Prisma.RecommendationCreateWithoutSenderInput[] | Prisma.RecommendationUncheckedCreateWithoutSenderInput[]
-  connectOrCreate?: Prisma.RecommendationCreateOrConnectWithoutSenderInput | Prisma.RecommendationCreateOrConnectWithoutSenderInput[]
-  createMany?: Prisma.RecommendationCreateManySenderInputEnvelope
-  connect?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
-}
-
 export type RecommendationCreateNestedManyWithoutReceiverInput = {
   create?: Prisma.XOR<Prisma.RecommendationCreateWithoutReceiverInput, Prisma.RecommendationUncheckedCreateWithoutReceiverInput> | Prisma.RecommendationCreateWithoutReceiverInput[] | Prisma.RecommendationUncheckedCreateWithoutReceiverInput[]
   connectOrCreate?: Prisma.RecommendationCreateOrConnectWithoutReceiverInput | Prisma.RecommendationCreateOrConnectWithoutReceiverInput[]
@@ -394,7 +387,7 @@ export type RecommendationCreateNestedManyWithoutReceiverInput = {
   connect?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
 }
 
-export type RecommendationUncheckedCreateNestedManyWithoutSenderInput = {
+export type RecommendationCreateNestedManyWithoutSenderInput = {
   create?: Prisma.XOR<Prisma.RecommendationCreateWithoutSenderInput, Prisma.RecommendationUncheckedCreateWithoutSenderInput> | Prisma.RecommendationCreateWithoutSenderInput[] | Prisma.RecommendationUncheckedCreateWithoutSenderInput[]
   connectOrCreate?: Prisma.RecommendationCreateOrConnectWithoutSenderInput | Prisma.RecommendationCreateOrConnectWithoutSenderInput[]
   createMany?: Prisma.RecommendationCreateManySenderInputEnvelope
@@ -408,18 +401,11 @@ export type RecommendationUncheckedCreateNestedManyWithoutReceiverInput = {
   connect?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
 }
 
-export type RecommendationUpdateManyWithoutSenderNestedInput = {
+export type RecommendationUncheckedCreateNestedManyWithoutSenderInput = {
   create?: Prisma.XOR<Prisma.RecommendationCreateWithoutSenderInput, Prisma.RecommendationUncheckedCreateWithoutSenderInput> | Prisma.RecommendationCreateWithoutSenderInput[] | Prisma.RecommendationUncheckedCreateWithoutSenderInput[]
   connectOrCreate?: Prisma.RecommendationCreateOrConnectWithoutSenderInput | Prisma.RecommendationCreateOrConnectWithoutSenderInput[]
-  upsert?: Prisma.RecommendationUpsertWithWhereUniqueWithoutSenderInput | Prisma.RecommendationUpsertWithWhereUniqueWithoutSenderInput[]
   createMany?: Prisma.RecommendationCreateManySenderInputEnvelope
-  set?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
-  disconnect?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
-  delete?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
   connect?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
-  update?: Prisma.RecommendationUpdateWithWhereUniqueWithoutSenderInput | Prisma.RecommendationUpdateWithWhereUniqueWithoutSenderInput[]
-  updateMany?: Prisma.RecommendationUpdateManyWithWhereWithoutSenderInput | Prisma.RecommendationUpdateManyWithWhereWithoutSenderInput[]
-  deleteMany?: Prisma.RecommendationScalarWhereInput | Prisma.RecommendationScalarWhereInput[]
 }
 
 export type RecommendationUpdateManyWithoutReceiverNestedInput = {
@@ -436,7 +422,7 @@ export type RecommendationUpdateManyWithoutReceiverNestedInput = {
   deleteMany?: Prisma.RecommendationScalarWhereInput | Prisma.RecommendationScalarWhereInput[]
 }
 
-export type RecommendationUncheckedUpdateManyWithoutSenderNestedInput = {
+export type RecommendationUpdateManyWithoutSenderNestedInput = {
   create?: Prisma.XOR<Prisma.RecommendationCreateWithoutSenderInput, Prisma.RecommendationUncheckedCreateWithoutSenderInput> | Prisma.RecommendationCreateWithoutSenderInput[] | Prisma.RecommendationUncheckedCreateWithoutSenderInput[]
   connectOrCreate?: Prisma.RecommendationCreateOrConnectWithoutSenderInput | Prisma.RecommendationCreateOrConnectWithoutSenderInput[]
   upsert?: Prisma.RecommendationUpsertWithWhereUniqueWithoutSenderInput | Prisma.RecommendationUpsertWithWhereUniqueWithoutSenderInput[]
@@ -461,6 +447,20 @@ export type RecommendationUncheckedUpdateManyWithoutReceiverNestedInput = {
   connect?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
   update?: Prisma.RecommendationUpdateWithWhereUniqueWithoutReceiverInput | Prisma.RecommendationUpdateWithWhereUniqueWithoutReceiverInput[]
   updateMany?: Prisma.RecommendationUpdateManyWithWhereWithoutReceiverInput | Prisma.RecommendationUpdateManyWithWhereWithoutReceiverInput[]
+  deleteMany?: Prisma.RecommendationScalarWhereInput | Prisma.RecommendationScalarWhereInput[]
+}
+
+export type RecommendationUncheckedUpdateManyWithoutSenderNestedInput = {
+  create?: Prisma.XOR<Prisma.RecommendationCreateWithoutSenderInput, Prisma.RecommendationUncheckedCreateWithoutSenderInput> | Prisma.RecommendationCreateWithoutSenderInput[] | Prisma.RecommendationUncheckedCreateWithoutSenderInput[]
+  connectOrCreate?: Prisma.RecommendationCreateOrConnectWithoutSenderInput | Prisma.RecommendationCreateOrConnectWithoutSenderInput[]
+  upsert?: Prisma.RecommendationUpsertWithWhereUniqueWithoutSenderInput | Prisma.RecommendationUpsertWithWhereUniqueWithoutSenderInput[]
+  createMany?: Prisma.RecommendationCreateManySenderInputEnvelope
+  set?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
+  disconnect?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
+  delete?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
+  connect?: Prisma.RecommendationWhereUniqueInput | Prisma.RecommendationWhereUniqueInput[]
+  update?: Prisma.RecommendationUpdateWithWhereUniqueWithoutSenderInput | Prisma.RecommendationUpdateWithWhereUniqueWithoutSenderInput[]
+  updateMany?: Prisma.RecommendationUpdateManyWithWhereWithoutSenderInput | Prisma.RecommendationUpdateManyWithWhereWithoutSenderInput[]
   deleteMany?: Prisma.RecommendationScalarWhereInput | Prisma.RecommendationScalarWhereInput[]
 }
 
@@ -506,33 +506,10 @@ export type RecommendationUncheckedUpdateManyWithoutMediaNestedInput = {
   deleteMany?: Prisma.RecommendationScalarWhereInput | Prisma.RecommendationScalarWhereInput[]
 }
 
-export type RecommendationCreateWithoutSenderInput = {
-  createdAt?: Date | string
-  receiver: Prisma.UserCreateNestedOneWithoutRecommendationsReceivedInput
-  media: Prisma.MediaCreateNestedOneWithoutRecommendationsInput
-}
-
-export type RecommendationUncheckedCreateWithoutSenderInput = {
-  id?: number
-  receiverId: number
-  mediaId: number
-  createdAt?: Date | string
-}
-
-export type RecommendationCreateOrConnectWithoutSenderInput = {
-  where: Prisma.RecommendationWhereUniqueInput
-  create: Prisma.XOR<Prisma.RecommendationCreateWithoutSenderInput, Prisma.RecommendationUncheckedCreateWithoutSenderInput>
-}
-
-export type RecommendationCreateManySenderInputEnvelope = {
-  data: Prisma.RecommendationCreateManySenderInput | Prisma.RecommendationCreateManySenderInput[]
-  skipDuplicates?: boolean
-}
-
 export type RecommendationCreateWithoutReceiverInput = {
   createdAt?: Date | string
-  sender: Prisma.UserCreateNestedOneWithoutRecommendationsSentInput
   media: Prisma.MediaCreateNestedOneWithoutRecommendationsInput
+  sender: Prisma.UserCreateNestedOneWithoutRecommendationsSentInput
 }
 
 export type RecommendationUncheckedCreateWithoutReceiverInput = {
@@ -552,31 +529,27 @@ export type RecommendationCreateManyReceiverInputEnvelope = {
   skipDuplicates?: boolean
 }
 
-export type RecommendationUpsertWithWhereUniqueWithoutSenderInput = {
+export type RecommendationCreateWithoutSenderInput = {
+  createdAt?: Date | string
+  media: Prisma.MediaCreateNestedOneWithoutRecommendationsInput
+  receiver: Prisma.UserCreateNestedOneWithoutRecommendationsReceivedInput
+}
+
+export type RecommendationUncheckedCreateWithoutSenderInput = {
+  id?: number
+  receiverId: number
+  mediaId: number
+  createdAt?: Date | string
+}
+
+export type RecommendationCreateOrConnectWithoutSenderInput = {
   where: Prisma.RecommendationWhereUniqueInput
-  update: Prisma.XOR<Prisma.RecommendationUpdateWithoutSenderInput, Prisma.RecommendationUncheckedUpdateWithoutSenderInput>
   create: Prisma.XOR<Prisma.RecommendationCreateWithoutSenderInput, Prisma.RecommendationUncheckedCreateWithoutSenderInput>
 }
 
-export type RecommendationUpdateWithWhereUniqueWithoutSenderInput = {
-  where: Prisma.RecommendationWhereUniqueInput
-  data: Prisma.XOR<Prisma.RecommendationUpdateWithoutSenderInput, Prisma.RecommendationUncheckedUpdateWithoutSenderInput>
-}
-
-export type RecommendationUpdateManyWithWhereWithoutSenderInput = {
-  where: Prisma.RecommendationScalarWhereInput
-  data: Prisma.XOR<Prisma.RecommendationUpdateManyMutationInput, Prisma.RecommendationUncheckedUpdateManyWithoutSenderInput>
-}
-
-export type RecommendationScalarWhereInput = {
-  AND?: Prisma.RecommendationScalarWhereInput | Prisma.RecommendationScalarWhereInput[]
-  OR?: Prisma.RecommendationScalarWhereInput[]
-  NOT?: Prisma.RecommendationScalarWhereInput | Prisma.RecommendationScalarWhereInput[]
-  id?: Prisma.IntFilter<"Recommendation"> | number
-  senderId?: Prisma.IntFilter<"Recommendation"> | number
-  receiverId?: Prisma.IntFilter<"Recommendation"> | number
-  mediaId?: Prisma.IntFilter<"Recommendation"> | number
-  createdAt?: Prisma.DateTimeFilter<"Recommendation"> | Date | string
+export type RecommendationCreateManySenderInputEnvelope = {
+  data: Prisma.RecommendationCreateManySenderInput | Prisma.RecommendationCreateManySenderInput[]
+  skipDuplicates?: boolean
 }
 
 export type RecommendationUpsertWithWhereUniqueWithoutReceiverInput = {
@@ -595,10 +568,37 @@ export type RecommendationUpdateManyWithWhereWithoutReceiverInput = {
   data: Prisma.XOR<Prisma.RecommendationUpdateManyMutationInput, Prisma.RecommendationUncheckedUpdateManyWithoutReceiverInput>
 }
 
+export type RecommendationScalarWhereInput = {
+  AND?: Prisma.RecommendationScalarWhereInput | Prisma.RecommendationScalarWhereInput[]
+  OR?: Prisma.RecommendationScalarWhereInput[]
+  NOT?: Prisma.RecommendationScalarWhereInput | Prisma.RecommendationScalarWhereInput[]
+  id?: Prisma.IntFilter<"Recommendation"> | number
+  senderId?: Prisma.IntFilter<"Recommendation"> | number
+  receiverId?: Prisma.IntFilter<"Recommendation"> | number
+  mediaId?: Prisma.IntFilter<"Recommendation"> | number
+  createdAt?: Prisma.DateTimeFilter<"Recommendation"> | Date | string
+}
+
+export type RecommendationUpsertWithWhereUniqueWithoutSenderInput = {
+  where: Prisma.RecommendationWhereUniqueInput
+  update: Prisma.XOR<Prisma.RecommendationUpdateWithoutSenderInput, Prisma.RecommendationUncheckedUpdateWithoutSenderInput>
+  create: Prisma.XOR<Prisma.RecommendationCreateWithoutSenderInput, Prisma.RecommendationUncheckedCreateWithoutSenderInput>
+}
+
+export type RecommendationUpdateWithWhereUniqueWithoutSenderInput = {
+  where: Prisma.RecommendationWhereUniqueInput
+  data: Prisma.XOR<Prisma.RecommendationUpdateWithoutSenderInput, Prisma.RecommendationUncheckedUpdateWithoutSenderInput>
+}
+
+export type RecommendationUpdateManyWithWhereWithoutSenderInput = {
+  where: Prisma.RecommendationScalarWhereInput
+  data: Prisma.XOR<Prisma.RecommendationUpdateManyMutationInput, Prisma.RecommendationUncheckedUpdateManyWithoutSenderInput>
+}
+
 export type RecommendationCreateWithoutMediaInput = {
   createdAt?: Date | string
-  sender: Prisma.UserCreateNestedOneWithoutRecommendationsSentInput
   receiver: Prisma.UserCreateNestedOneWithoutRecommendationsReceivedInput
+  sender: Prisma.UserCreateNestedOneWithoutRecommendationsSentInput
 }
 
 export type RecommendationUncheckedCreateWithoutMediaInput = {
@@ -634,13 +634,6 @@ export type RecommendationUpdateManyWithWhereWithoutMediaInput = {
   data: Prisma.XOR<Prisma.RecommendationUpdateManyMutationInput, Prisma.RecommendationUncheckedUpdateManyWithoutMediaInput>
 }
 
-export type RecommendationCreateManySenderInput = {
-  id?: number
-  receiverId: number
-  mediaId: number
-  createdAt?: Date | string
-}
-
 export type RecommendationCreateManyReceiverInput = {
   id?: number
   senderId: number
@@ -648,30 +641,17 @@ export type RecommendationCreateManyReceiverInput = {
   createdAt?: Date | string
 }
 
-export type RecommendationUpdateWithoutSenderInput = {
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  receiver?: Prisma.UserUpdateOneRequiredWithoutRecommendationsReceivedNestedInput
-  media?: Prisma.MediaUpdateOneRequiredWithoutRecommendationsNestedInput
-}
-
-export type RecommendationUncheckedUpdateWithoutSenderInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  receiverId?: Prisma.IntFieldUpdateOperationsInput | number
-  mediaId?: Prisma.IntFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type RecommendationUncheckedUpdateManyWithoutSenderInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  receiverId?: Prisma.IntFieldUpdateOperationsInput | number
-  mediaId?: Prisma.IntFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+export type RecommendationCreateManySenderInput = {
+  id?: number
+  receiverId: number
+  mediaId: number
+  createdAt?: Date | string
 }
 
 export type RecommendationUpdateWithoutReceiverInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sender?: Prisma.UserUpdateOneRequiredWithoutRecommendationsSentNestedInput
   media?: Prisma.MediaUpdateOneRequiredWithoutRecommendationsNestedInput
+  sender?: Prisma.UserUpdateOneRequiredWithoutRecommendationsSentNestedInput
 }
 
 export type RecommendationUncheckedUpdateWithoutReceiverInput = {
@@ -688,6 +668,26 @@ export type RecommendationUncheckedUpdateManyWithoutReceiverInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+export type RecommendationUpdateWithoutSenderInput = {
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  media?: Prisma.MediaUpdateOneRequiredWithoutRecommendationsNestedInput
+  receiver?: Prisma.UserUpdateOneRequiredWithoutRecommendationsReceivedNestedInput
+}
+
+export type RecommendationUncheckedUpdateWithoutSenderInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  receiverId?: Prisma.IntFieldUpdateOperationsInput | number
+  mediaId?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type RecommendationUncheckedUpdateManyWithoutSenderInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  receiverId?: Prisma.IntFieldUpdateOperationsInput | number
+  mediaId?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type RecommendationCreateManyMediaInput = {
   id?: number
   senderId: number
@@ -697,8 +697,8 @@ export type RecommendationCreateManyMediaInput = {
 
 export type RecommendationUpdateWithoutMediaInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sender?: Prisma.UserUpdateOneRequiredWithoutRecommendationsSentNestedInput
   receiver?: Prisma.UserUpdateOneRequiredWithoutRecommendationsReceivedNestedInput
+  sender?: Prisma.UserUpdateOneRequiredWithoutRecommendationsSentNestedInput
 }
 
 export type RecommendationUncheckedUpdateWithoutMediaInput = {
@@ -723,9 +723,9 @@ export type RecommendationSelect<ExtArgs extends runtime.Types.Extensions.Intern
   receiverId?: boolean
   mediaId?: boolean
   createdAt?: boolean
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   media?: boolean | Prisma.MediaDefaultArgs<ExtArgs>
+  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["recommendation"]>
 
 export type RecommendationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -734,9 +734,9 @@ export type RecommendationSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   receiverId?: boolean
   mediaId?: boolean
   createdAt?: boolean
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   media?: boolean | Prisma.MediaDefaultArgs<ExtArgs>
+  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["recommendation"]>
 
 export type RecommendationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -745,9 +745,9 @@ export type RecommendationSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   receiverId?: boolean
   mediaId?: boolean
   createdAt?: boolean
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   media?: boolean | Prisma.MediaDefaultArgs<ExtArgs>
+  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["recommendation"]>
 
 export type RecommendationSelectScalar = {
@@ -760,27 +760,27 @@ export type RecommendationSelectScalar = {
 
 export type RecommendationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "senderId" | "receiverId" | "mediaId" | "createdAt", ExtArgs["result"]["recommendation"]>
 export type RecommendationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   media?: boolean | Prisma.MediaDefaultArgs<ExtArgs>
+  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type RecommendationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   media?: boolean | Prisma.MediaDefaultArgs<ExtArgs>
+  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type RecommendationIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   media?: boolean | Prisma.MediaDefaultArgs<ExtArgs>
+  receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $RecommendationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Recommendation"
   objects: {
-    sender: Prisma.$UserPayload<ExtArgs>
-    receiver: Prisma.$UserPayload<ExtArgs>
     media: Prisma.$MediaPayload<ExtArgs>
+    receiver: Prisma.$UserPayload<ExtArgs>
+    sender: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1182,9 +1182,9 @@ readonly fields: RecommendationFieldRefs;
  */
 export interface Prisma__RecommendationClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  sender<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  receiver<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   media<T extends Prisma.MediaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MediaDefaultArgs<ExtArgs>>): Prisma.Prisma__MediaClient<runtime.Types.Result.GetResult<Prisma.$MediaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  receiver<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  sender<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

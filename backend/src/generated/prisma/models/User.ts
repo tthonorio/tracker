@@ -224,17 +224,17 @@ export type UserWhereInput = {
   passwordHash?: Prisma.StringFilter<"User"> | string
   profileImage?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  achievements?: Prisma.AchievementListRelationFilter
+  feedActivities?: Prisma.FeedActivityListRelationFilter
+  friendshipsReceived?: Prisma.FriendshipListRelationFilter
+  friendshipsSent?: Prisma.FriendshipListRelationFilter
+  lists?: Prisma.ListListRelationFilter
+  reactions?: Prisma.ReactionListRelationFilter
+  recommendationsReceived?: Prisma.RecommendationListRelationFilter
+  recommendationsSent?: Prisma.RecommendationListRelationFilter
+  reviews?: Prisma.ReviewListRelationFilter
   trackingEntries?: Prisma.TrackingEntryListRelationFilter
   watches?: Prisma.WatchListRelationFilter
-  friendshipsSent?: Prisma.FriendshipListRelationFilter
-  friendshipsReceived?: Prisma.FriendshipListRelationFilter
-  reviews?: Prisma.ReviewListRelationFilter
-  lists?: Prisma.ListListRelationFilter
-  recommendationsSent?: Prisma.RecommendationListRelationFilter
-  recommendationsReceived?: Prisma.RecommendationListRelationFilter
-  reactions?: Prisma.ReactionListRelationFilter
-  feedActivities?: Prisma.FeedActivityListRelationFilter
-  achievements?: Prisma.AchievementListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -244,17 +244,17 @@ export type UserOrderByWithRelationInput = {
   passwordHash?: Prisma.SortOrder
   profileImage?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  achievements?: Prisma.AchievementOrderByRelationAggregateInput
+  feedActivities?: Prisma.FeedActivityOrderByRelationAggregateInput
+  friendshipsReceived?: Prisma.FriendshipOrderByRelationAggregateInput
+  friendshipsSent?: Prisma.FriendshipOrderByRelationAggregateInput
+  lists?: Prisma.ListOrderByRelationAggregateInput
+  reactions?: Prisma.ReactionOrderByRelationAggregateInput
+  recommendationsReceived?: Prisma.RecommendationOrderByRelationAggregateInput
+  recommendationsSent?: Prisma.RecommendationOrderByRelationAggregateInput
+  reviews?: Prisma.ReviewOrderByRelationAggregateInput
   trackingEntries?: Prisma.TrackingEntryOrderByRelationAggregateInput
   watches?: Prisma.WatchOrderByRelationAggregateInput
-  friendshipsSent?: Prisma.FriendshipOrderByRelationAggregateInput
-  friendshipsReceived?: Prisma.FriendshipOrderByRelationAggregateInput
-  reviews?: Prisma.ReviewOrderByRelationAggregateInput
-  lists?: Prisma.ListOrderByRelationAggregateInput
-  recommendationsSent?: Prisma.RecommendationOrderByRelationAggregateInput
-  recommendationsReceived?: Prisma.RecommendationOrderByRelationAggregateInput
-  reactions?: Prisma.ReactionOrderByRelationAggregateInput
-  feedActivities?: Prisma.FeedActivityOrderByRelationAggregateInput
-  achievements?: Prisma.AchievementOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -267,17 +267,17 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   passwordHash?: Prisma.StringFilter<"User"> | string
   profileImage?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  achievements?: Prisma.AchievementListRelationFilter
+  feedActivities?: Prisma.FeedActivityListRelationFilter
+  friendshipsReceived?: Prisma.FriendshipListRelationFilter
+  friendshipsSent?: Prisma.FriendshipListRelationFilter
+  lists?: Prisma.ListListRelationFilter
+  reactions?: Prisma.ReactionListRelationFilter
+  recommendationsReceived?: Prisma.RecommendationListRelationFilter
+  recommendationsSent?: Prisma.RecommendationListRelationFilter
+  reviews?: Prisma.ReviewListRelationFilter
   trackingEntries?: Prisma.TrackingEntryListRelationFilter
   watches?: Prisma.WatchListRelationFilter
-  friendshipsSent?: Prisma.FriendshipListRelationFilter
-  friendshipsReceived?: Prisma.FriendshipListRelationFilter
-  reviews?: Prisma.ReviewListRelationFilter
-  lists?: Prisma.ListListRelationFilter
-  recommendationsSent?: Prisma.RecommendationListRelationFilter
-  recommendationsReceived?: Prisma.RecommendationListRelationFilter
-  reactions?: Prisma.ReactionListRelationFilter
-  feedActivities?: Prisma.FeedActivityListRelationFilter
-  achievements?: Prisma.AchievementListRelationFilter
 }, "id" | "username" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -312,17 +312,17 @@ export type UserCreateInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -332,17 +332,17 @@ export type UserUncheckedCreateInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -351,17 +351,17 @@ export type UserUpdateInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -371,17 +371,17 @@ export type UserUncheckedUpdateInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -498,24 +498,16 @@ export type UserUpdateOneRequiredWithoutWatchesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutWatchesInput, Prisma.UserUpdateWithoutWatchesInput>, Prisma.UserUncheckedUpdateWithoutWatchesInput>
 }
 
-export type UserCreateNestedOneWithoutFriendshipsSentInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutFriendshipsSentInput, Prisma.UserUncheckedCreateWithoutFriendshipsSentInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFriendshipsSentInput
-  connect?: Prisma.UserWhereUniqueInput
-}
-
 export type UserCreateNestedOneWithoutFriendshipsReceivedInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutFriendshipsReceivedInput, Prisma.UserUncheckedCreateWithoutFriendshipsReceivedInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutFriendshipsReceivedInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneRequiredWithoutFriendshipsSentNestedInput = {
+export type UserCreateNestedOneWithoutFriendshipsSentInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutFriendshipsSentInput, Prisma.UserUncheckedCreateWithoutFriendshipsSentInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutFriendshipsSentInput
-  upsert?: Prisma.UserUpsertWithoutFriendshipsSentInput
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutFriendshipsSentInput, Prisma.UserUpdateWithoutFriendshipsSentInput>, Prisma.UserUncheckedUpdateWithoutFriendshipsSentInput>
 }
 
 export type UserUpdateOneRequiredWithoutFriendshipsReceivedNestedInput = {
@@ -524,6 +516,14 @@ export type UserUpdateOneRequiredWithoutFriendshipsReceivedNestedInput = {
   upsert?: Prisma.UserUpsertWithoutFriendshipsReceivedInput
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutFriendshipsReceivedInput, Prisma.UserUpdateWithoutFriendshipsReceivedInput>, Prisma.UserUncheckedUpdateWithoutFriendshipsReceivedInput>
+}
+
+export type UserUpdateOneRequiredWithoutFriendshipsSentNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutFriendshipsSentInput, Prisma.UserUncheckedCreateWithoutFriendshipsSentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFriendshipsSentInput
+  upsert?: Prisma.UserUpsertWithoutFriendshipsSentInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutFriendshipsSentInput, Prisma.UserUpdateWithoutFriendshipsSentInput>, Prisma.UserUncheckedUpdateWithoutFriendshipsSentInput>
 }
 
 export type UserCreateNestedOneWithoutReviewsInput = {
@@ -568,24 +568,16 @@ export type UserUpdateOneRequiredWithoutListsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutListsInput, Prisma.UserUpdateWithoutListsInput>, Prisma.UserUncheckedUpdateWithoutListsInput>
 }
 
-export type UserCreateNestedOneWithoutRecommendationsSentInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutRecommendationsSentInput, Prisma.UserUncheckedCreateWithoutRecommendationsSentInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRecommendationsSentInput
-  connect?: Prisma.UserWhereUniqueInput
-}
-
 export type UserCreateNestedOneWithoutRecommendationsReceivedInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutRecommendationsReceivedInput, Prisma.UserUncheckedCreateWithoutRecommendationsReceivedInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutRecommendationsReceivedInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneRequiredWithoutRecommendationsSentNestedInput = {
+export type UserCreateNestedOneWithoutRecommendationsSentInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutRecommendationsSentInput, Prisma.UserUncheckedCreateWithoutRecommendationsSentInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutRecommendationsSentInput
-  upsert?: Prisma.UserUpsertWithoutRecommendationsSentInput
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutRecommendationsSentInput, Prisma.UserUpdateWithoutRecommendationsSentInput>, Prisma.UserUncheckedUpdateWithoutRecommendationsSentInput>
 }
 
 export type UserUpdateOneRequiredWithoutRecommendationsReceivedNestedInput = {
@@ -594,6 +586,14 @@ export type UserUpdateOneRequiredWithoutRecommendationsReceivedNestedInput = {
   upsert?: Prisma.UserUpsertWithoutRecommendationsReceivedInput
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutRecommendationsReceivedInput, Prisma.UserUpdateWithoutRecommendationsReceivedInput>, Prisma.UserUncheckedUpdateWithoutRecommendationsReceivedInput>
+}
+
+export type UserUpdateOneRequiredWithoutRecommendationsSentNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutRecommendationsSentInput, Prisma.UserUncheckedCreateWithoutRecommendationsSentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRecommendationsSentInput
+  upsert?: Prisma.UserUpsertWithoutRecommendationsSentInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutRecommendationsSentInput, Prisma.UserUpdateWithoutRecommendationsSentInput>, Prisma.UserUncheckedUpdateWithoutRecommendationsSentInput>
 }
 
 export type UserCreateNestedOneWithoutFeedActivitiesInput = {
@@ -630,16 +630,16 @@ export type UserCreateWithoutTrackingEntriesInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
-  watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
   achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
+  watches?: Prisma.WatchCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutTrackingEntriesInput = {
@@ -649,16 +649,16 @@ export type UserUncheckedCreateWithoutTrackingEntriesInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
-  watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
   achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
+  watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutTrackingEntriesInput = {
@@ -683,16 +683,16 @@ export type UserUpdateWithoutTrackingEntriesInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
   achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
+  watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTrackingEntriesInput = {
@@ -702,16 +702,16 @@ export type UserUncheckedUpdateWithoutTrackingEntriesInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
   achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
+  watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutWatchesInput = {
@@ -720,16 +720,16 @@ export type UserCreateWithoutWatchesInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
-  trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
   achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
+  trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutWatchesInput = {
@@ -739,16 +739,16 @@ export type UserUncheckedCreateWithoutWatchesInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
-  trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
   achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
+  trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutWatchesInput = {
@@ -773,16 +773,16 @@ export type UserUpdateWithoutWatchesInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
   achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
+  trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWatchesInput = {
@@ -792,58 +792,16 @@ export type UserUncheckedUpdateWithoutWatchesInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
   achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
-}
-
-export type UserCreateWithoutFriendshipsSentInput = {
-  username: string
-  email: string
-  passwordHash: string
-  profileImage?: string | null
-  createdAt?: Date | string
-  trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
-  watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
-}
-
-export type UserUncheckedCreateWithoutFriendshipsSentInput = {
-  id?: number
-  username: string
-  email: string
-  passwordHash: string
-  profileImage?: string | null
-  createdAt?: Date | string
-  trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
-  watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
-}
-
-export type UserCreateOrConnectWithoutFriendshipsSentInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutFriendshipsSentInput, Prisma.UserUncheckedCreateWithoutFriendshipsSentInput>
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
+  trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutFriendshipsReceivedInput = {
@@ -852,16 +810,16 @@ export type UserCreateWithoutFriendshipsReceivedInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutFriendshipsReceivedInput = {
@@ -871,16 +829,16 @@ export type UserUncheckedCreateWithoutFriendshipsReceivedInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutFriendshipsReceivedInput = {
@@ -888,52 +846,46 @@ export type UserCreateOrConnectWithoutFriendshipsReceivedInput = {
   create: Prisma.XOR<Prisma.UserCreateWithoutFriendshipsReceivedInput, Prisma.UserUncheckedCreateWithoutFriendshipsReceivedInput>
 }
 
-export type UserUpsertWithoutFriendshipsSentInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutFriendshipsSentInput, Prisma.UserUncheckedUpdateWithoutFriendshipsSentInput>
+export type UserCreateWithoutFriendshipsSentInput = {
+  username: string
+  email: string
+  passwordHash: string
+  profileImage?: string | null
+  createdAt?: Date | string
+  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
+  trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
+  watches?: Prisma.WatchCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutFriendshipsSentInput = {
+  id?: number
+  username: string
+  email: string
+  passwordHash: string
+  profileImage?: string | null
+  createdAt?: Date | string
+  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
+  trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
+  watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutFriendshipsSentInput = {
+  where: Prisma.UserWhereUniqueInput
   create: Prisma.XOR<Prisma.UserCreateWithoutFriendshipsSentInput, Prisma.UserUncheckedCreateWithoutFriendshipsSentInput>
-  where?: Prisma.UserWhereInput
-}
-
-export type UserUpdateToOneWithWhereWithoutFriendshipsSentInput = {
-  where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutFriendshipsSentInput, Prisma.UserUncheckedUpdateWithoutFriendshipsSentInput>
-}
-
-export type UserUpdateWithoutFriendshipsSentInput = {
-  username?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
-  profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
-  watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
-}
-
-export type UserUncheckedUpdateWithoutFriendshipsSentInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  username?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
-  profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
-  watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserUpsertWithoutFriendshipsReceivedInput = {
@@ -953,16 +905,16 @@ export type UserUpdateWithoutFriendshipsReceivedInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFriendshipsReceivedInput = {
@@ -972,16 +924,64 @@ export type UserUncheckedUpdateWithoutFriendshipsReceivedInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserUpsertWithoutFriendshipsSentInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutFriendshipsSentInput, Prisma.UserUncheckedUpdateWithoutFriendshipsSentInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutFriendshipsSentInput, Prisma.UserUncheckedCreateWithoutFriendshipsSentInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutFriendshipsSentInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutFriendshipsSentInput, Prisma.UserUncheckedUpdateWithoutFriendshipsSentInput>
+}
+
+export type UserUpdateWithoutFriendshipsSentInput = {
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
+  trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
+  watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutFriendshipsSentInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
+  trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
+  watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutReviewsInput = {
@@ -990,16 +990,16 @@ export type UserCreateWithoutReviewsInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutReviewsInput = {
@@ -1009,16 +1009,16 @@ export type UserUncheckedCreateWithoutReviewsInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutReviewsInput = {
@@ -1043,16 +1043,16 @@ export type UserUpdateWithoutReviewsInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutReviewsInput = {
@@ -1062,16 +1062,16 @@ export type UserUncheckedUpdateWithoutReviewsInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutReactionsInput = {
@@ -1080,16 +1080,16 @@ export type UserCreateWithoutReactionsInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutReactionsInput = {
@@ -1099,16 +1099,16 @@ export type UserUncheckedCreateWithoutReactionsInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutReactionsInput = {
@@ -1133,16 +1133,16 @@ export type UserUpdateWithoutReactionsInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutReactionsInput = {
@@ -1152,16 +1152,16 @@ export type UserUncheckedUpdateWithoutReactionsInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutListsInput = {
@@ -1170,16 +1170,16 @@ export type UserCreateWithoutListsInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutListsInput = {
@@ -1189,16 +1189,16 @@ export type UserUncheckedCreateWithoutListsInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutListsInput = {
@@ -1223,16 +1223,16 @@ export type UserUpdateWithoutListsInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutListsInput = {
@@ -1242,58 +1242,16 @@ export type UserUncheckedUpdateWithoutListsInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
-}
-
-export type UserCreateWithoutRecommendationsSentInput = {
-  username: string
-  email: string
-  passwordHash: string
-  profileImage?: string | null
-  createdAt?: Date | string
-  trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
-  watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
-}
-
-export type UserUncheckedCreateWithoutRecommendationsSentInput = {
-  id?: number
-  username: string
-  email: string
-  passwordHash: string
-  profileImage?: string | null
-  createdAt?: Date | string
-  trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
-  watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
-}
-
-export type UserCreateOrConnectWithoutRecommendationsSentInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutRecommendationsSentInput, Prisma.UserUncheckedCreateWithoutRecommendationsSentInput>
 }
 
 export type UserCreateWithoutRecommendationsReceivedInput = {
@@ -1302,16 +1260,16 @@ export type UserCreateWithoutRecommendationsReceivedInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutRecommendationsReceivedInput = {
@@ -1321,16 +1279,16 @@ export type UserUncheckedCreateWithoutRecommendationsReceivedInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutRecommendationsReceivedInput = {
@@ -1338,52 +1296,46 @@ export type UserCreateOrConnectWithoutRecommendationsReceivedInput = {
   create: Prisma.XOR<Prisma.UserCreateWithoutRecommendationsReceivedInput, Prisma.UserUncheckedCreateWithoutRecommendationsReceivedInput>
 }
 
-export type UserUpsertWithoutRecommendationsSentInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutRecommendationsSentInput, Prisma.UserUncheckedUpdateWithoutRecommendationsSentInput>
+export type UserCreateWithoutRecommendationsSentInput = {
+  username: string
+  email: string
+  passwordHash: string
+  profileImage?: string | null
+  createdAt?: Date | string
+  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
+  trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
+  watches?: Prisma.WatchCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutRecommendationsSentInput = {
+  id?: number
+  username: string
+  email: string
+  passwordHash: string
+  profileImage?: string | null
+  createdAt?: Date | string
+  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
+  trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
+  watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutRecommendationsSentInput = {
+  where: Prisma.UserWhereUniqueInput
   create: Prisma.XOR<Prisma.UserCreateWithoutRecommendationsSentInput, Prisma.UserUncheckedCreateWithoutRecommendationsSentInput>
-  where?: Prisma.UserWhereInput
-}
-
-export type UserUpdateToOneWithWhereWithoutRecommendationsSentInput = {
-  where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutRecommendationsSentInput, Prisma.UserUncheckedUpdateWithoutRecommendationsSentInput>
-}
-
-export type UserUpdateWithoutRecommendationsSentInput = {
-  username?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
-  profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
-  watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
-}
-
-export type UserUncheckedUpdateWithoutRecommendationsSentInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  username?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
-  profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
-  watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserUpsertWithoutRecommendationsReceivedInput = {
@@ -1403,16 +1355,16 @@ export type UserUpdateWithoutRecommendationsReceivedInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRecommendationsReceivedInput = {
@@ -1422,16 +1374,64 @@ export type UserUncheckedUpdateWithoutRecommendationsReceivedInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserUpsertWithoutRecommendationsSentInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutRecommendationsSentInput, Prisma.UserUncheckedUpdateWithoutRecommendationsSentInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutRecommendationsSentInput, Prisma.UserUncheckedCreateWithoutRecommendationsSentInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutRecommendationsSentInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutRecommendationsSentInput, Prisma.UserUncheckedUpdateWithoutRecommendationsSentInput>
+}
+
+export type UserUpdateWithoutRecommendationsSentInput = {
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
+  trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
+  watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutRecommendationsSentInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
+  trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
+  watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutFeedActivitiesInput = {
@@ -1440,16 +1440,16 @@ export type UserCreateWithoutFeedActivitiesInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutFeedActivitiesInput = {
@@ -1459,16 +1459,16 @@ export type UserUncheckedCreateWithoutFeedActivitiesInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  achievements?: Prisma.AchievementUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutFeedActivitiesInput = {
@@ -1493,16 +1493,16 @@ export type UserUpdateWithoutFeedActivitiesInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFeedActivitiesInput = {
@@ -1512,16 +1512,16 @@ export type UserUncheckedUpdateWithoutFeedActivitiesInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  achievements?: Prisma.AchievementUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutAchievementsInput = {
@@ -1530,16 +1530,16 @@ export type UserCreateWithoutAchievementsInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutAchievementsInput = {
@@ -1549,16 +1549,16 @@ export type UserUncheckedCreateWithoutAchievementsInput = {
   passwordHash: string
   profileImage?: string | null
   createdAt?: Date | string
+  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
+  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
+  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
+  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
+  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutUserInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutUserInput
-  friendshipsSent?: Prisma.FriendshipUncheckedCreateNestedManyWithoutSenderInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedCreateNestedManyWithoutReceiverInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  lists?: Prisma.ListUncheckedCreateNestedManyWithoutUserInput
-  recommendationsSent?: Prisma.RecommendationUncheckedCreateNestedManyWithoutSenderInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedCreateNestedManyWithoutReceiverInput
-  reactions?: Prisma.ReactionUncheckedCreateNestedManyWithoutUserInput
-  feedActivities?: Prisma.FeedActivityUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutAchievementsInput = {
@@ -1583,16 +1583,16 @@ export type UserUpdateWithoutAchievementsInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAchievementsInput = {
@@ -1602,16 +1602,16 @@ export type UserUncheckedUpdateWithoutAchievementsInput = {
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   profileImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
+  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
+  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
+  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
+  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
+  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
+  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutUserNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutUserNestedInput
-  friendshipsSent?: Prisma.FriendshipUncheckedUpdateManyWithoutSenderNestedInput
-  friendshipsReceived?: Prisma.FriendshipUncheckedUpdateManyWithoutReceiverNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  lists?: Prisma.ListUncheckedUpdateManyWithoutUserNestedInput
-  recommendationsSent?: Prisma.RecommendationUncheckedUpdateManyWithoutSenderNestedInput
-  recommendationsReceived?: Prisma.RecommendationUncheckedUpdateManyWithoutReceiverNestedInput
-  reactions?: Prisma.ReactionUncheckedUpdateManyWithoutUserNestedInput
-  feedActivities?: Prisma.FeedActivityUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -1620,31 +1620,31 @@ export type UserUncheckedUpdateWithoutAchievementsInput = {
  */
 
 export type UserCountOutputType = {
+  achievements: number
+  feedActivities: number
+  friendshipsReceived: number
+  friendshipsSent: number
+  lists: number
+  reactions: number
+  recommendationsReceived: number
+  recommendationsSent: number
+  reviews: number
   trackingEntries: number
   watches: number
-  friendshipsSent: number
-  friendshipsReceived: number
-  reviews: number
-  lists: number
-  recommendationsSent: number
-  recommendationsReceived: number
-  reactions: number
-  feedActivities: number
-  achievements: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  achievements?: boolean | UserCountOutputTypeCountAchievementsArgs
+  feedActivities?: boolean | UserCountOutputTypeCountFeedActivitiesArgs
+  friendshipsReceived?: boolean | UserCountOutputTypeCountFriendshipsReceivedArgs
+  friendshipsSent?: boolean | UserCountOutputTypeCountFriendshipsSentArgs
+  lists?: boolean | UserCountOutputTypeCountListsArgs
+  reactions?: boolean | UserCountOutputTypeCountReactionsArgs
+  recommendationsReceived?: boolean | UserCountOutputTypeCountRecommendationsReceivedArgs
+  recommendationsSent?: boolean | UserCountOutputTypeCountRecommendationsSentArgs
+  reviews?: boolean | UserCountOutputTypeCountReviewsArgs
   trackingEntries?: boolean | UserCountOutputTypeCountTrackingEntriesArgs
   watches?: boolean | UserCountOutputTypeCountWatchesArgs
-  friendshipsSent?: boolean | UserCountOutputTypeCountFriendshipsSentArgs
-  friendshipsReceived?: boolean | UserCountOutputTypeCountFriendshipsReceivedArgs
-  reviews?: boolean | UserCountOutputTypeCountReviewsArgs
-  lists?: boolean | UserCountOutputTypeCountListsArgs
-  recommendationsSent?: boolean | UserCountOutputTypeCountRecommendationsSentArgs
-  recommendationsReceived?: boolean | UserCountOutputTypeCountRecommendationsReceivedArgs
-  reactions?: boolean | UserCountOutputTypeCountReactionsArgs
-  feedActivities?: boolean | UserCountOutputTypeCountFeedActivitiesArgs
-  achievements?: boolean | UserCountOutputTypeCountAchievementsArgs
 }
 
 /**
@@ -1655,6 +1655,69 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
    * Select specific fields to fetch from the UserCountOutputType
    */
   select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAchievementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AchievementWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountFeedActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FeedActivityWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountFriendshipsReceivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FriendshipWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountFriendshipsSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FriendshipWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountListsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ListWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountReactionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ReactionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountRecommendationsReceivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RecommendationWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountRecommendationsSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RecommendationWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ReviewWhereInput
 }
 
 /**
@@ -1671,69 +1734,6 @@ export type UserCountOutputTypeCountWatchesArgs<ExtArgs extends runtime.Types.Ex
   where?: Prisma.WatchWhereInput
 }
 
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountFriendshipsSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.FriendshipWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountFriendshipsReceivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.FriendshipWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ReviewWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountListsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ListWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountRecommendationsSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.RecommendationWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountRecommendationsReceivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.RecommendationWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountReactionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ReactionWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountFeedActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.FeedActivityWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountAchievementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.AchievementWhereInput
-}
-
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1742,17 +1742,17 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   passwordHash?: boolean
   profileImage?: boolean
   createdAt?: boolean
+  achievements?: boolean | Prisma.User$achievementsArgs<ExtArgs>
+  feedActivities?: boolean | Prisma.User$feedActivitiesArgs<ExtArgs>
+  friendshipsReceived?: boolean | Prisma.User$friendshipsReceivedArgs<ExtArgs>
+  friendshipsSent?: boolean | Prisma.User$friendshipsSentArgs<ExtArgs>
+  lists?: boolean | Prisma.User$listsArgs<ExtArgs>
+  reactions?: boolean | Prisma.User$reactionsArgs<ExtArgs>
+  recommendationsReceived?: boolean | Prisma.User$recommendationsReceivedArgs<ExtArgs>
+  recommendationsSent?: boolean | Prisma.User$recommendationsSentArgs<ExtArgs>
+  reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
   trackingEntries?: boolean | Prisma.User$trackingEntriesArgs<ExtArgs>
   watches?: boolean | Prisma.User$watchesArgs<ExtArgs>
-  friendshipsSent?: boolean | Prisma.User$friendshipsSentArgs<ExtArgs>
-  friendshipsReceived?: boolean | Prisma.User$friendshipsReceivedArgs<ExtArgs>
-  reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
-  lists?: boolean | Prisma.User$listsArgs<ExtArgs>
-  recommendationsSent?: boolean | Prisma.User$recommendationsSentArgs<ExtArgs>
-  recommendationsReceived?: boolean | Prisma.User$recommendationsReceivedArgs<ExtArgs>
-  reactions?: boolean | Prisma.User$reactionsArgs<ExtArgs>
-  feedActivities?: boolean | Prisma.User$feedActivitiesArgs<ExtArgs>
-  achievements?: boolean | Prisma.User$achievementsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1785,17 +1785,17 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "username" | "email" | "passwordHash" | "profileImage" | "createdAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  achievements?: boolean | Prisma.User$achievementsArgs<ExtArgs>
+  feedActivities?: boolean | Prisma.User$feedActivitiesArgs<ExtArgs>
+  friendshipsReceived?: boolean | Prisma.User$friendshipsReceivedArgs<ExtArgs>
+  friendshipsSent?: boolean | Prisma.User$friendshipsSentArgs<ExtArgs>
+  lists?: boolean | Prisma.User$listsArgs<ExtArgs>
+  reactions?: boolean | Prisma.User$reactionsArgs<ExtArgs>
+  recommendationsReceived?: boolean | Prisma.User$recommendationsReceivedArgs<ExtArgs>
+  recommendationsSent?: boolean | Prisma.User$recommendationsSentArgs<ExtArgs>
+  reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
   trackingEntries?: boolean | Prisma.User$trackingEntriesArgs<ExtArgs>
   watches?: boolean | Prisma.User$watchesArgs<ExtArgs>
-  friendshipsSent?: boolean | Prisma.User$friendshipsSentArgs<ExtArgs>
-  friendshipsReceived?: boolean | Prisma.User$friendshipsReceivedArgs<ExtArgs>
-  reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
-  lists?: boolean | Prisma.User$listsArgs<ExtArgs>
-  recommendationsSent?: boolean | Prisma.User$recommendationsSentArgs<ExtArgs>
-  recommendationsReceived?: boolean | Prisma.User$recommendationsReceivedArgs<ExtArgs>
-  reactions?: boolean | Prisma.User$reactionsArgs<ExtArgs>
-  feedActivities?: boolean | Prisma.User$feedActivitiesArgs<ExtArgs>
-  achievements?: boolean | Prisma.User$achievementsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1804,17 +1804,17 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
+    achievements: Prisma.$AchievementPayload<ExtArgs>[]
+    feedActivities: Prisma.$FeedActivityPayload<ExtArgs>[]
+    friendshipsReceived: Prisma.$FriendshipPayload<ExtArgs>[]
+    friendshipsSent: Prisma.$FriendshipPayload<ExtArgs>[]
+    lists: Prisma.$ListPayload<ExtArgs>[]
+    reactions: Prisma.$ReactionPayload<ExtArgs>[]
+    recommendationsReceived: Prisma.$RecommendationPayload<ExtArgs>[]
+    recommendationsSent: Prisma.$RecommendationPayload<ExtArgs>[]
+    reviews: Prisma.$ReviewPayload<ExtArgs>[]
     trackingEntries: Prisma.$TrackingEntryPayload<ExtArgs>[]
     watches: Prisma.$WatchPayload<ExtArgs>[]
-    friendshipsSent: Prisma.$FriendshipPayload<ExtArgs>[]
-    friendshipsReceived: Prisma.$FriendshipPayload<ExtArgs>[]
-    reviews: Prisma.$ReviewPayload<ExtArgs>[]
-    lists: Prisma.$ListPayload<ExtArgs>[]
-    recommendationsSent: Prisma.$RecommendationPayload<ExtArgs>[]
-    recommendationsReceived: Prisma.$RecommendationPayload<ExtArgs>[]
-    reactions: Prisma.$ReactionPayload<ExtArgs>[]
-    feedActivities: Prisma.$FeedActivityPayload<ExtArgs>[]
-    achievements: Prisma.$AchievementPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2217,17 +2217,17 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  achievements<T extends Prisma.User$achievementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$achievementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  feedActivities<T extends Prisma.User$feedActivitiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$feedActivitiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FeedActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  friendshipsReceived<T extends Prisma.User$friendshipsReceivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$friendshipsReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FriendshipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  friendshipsSent<T extends Prisma.User$friendshipsSentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$friendshipsSentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FriendshipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  lists<T extends Prisma.User$listsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$listsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ListPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reactions<T extends Prisma.User$reactionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reactionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  recommendationsReceived<T extends Prisma.User$recommendationsReceivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$recommendationsReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecommendationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  recommendationsSent<T extends Prisma.User$recommendationsSentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$recommendationsSentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecommendationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reviews<T extends Prisma.User$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trackingEntries<T extends Prisma.User$trackingEntriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$trackingEntriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackingEntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   watches<T extends Prisma.User$watchesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$watchesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  friendshipsSent<T extends Prisma.User$friendshipsSentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$friendshipsSentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FriendshipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  friendshipsReceived<T extends Prisma.User$friendshipsReceivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$friendshipsReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FriendshipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  reviews<T extends Prisma.User$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  lists<T extends Prisma.User$listsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$listsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ListPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  recommendationsSent<T extends Prisma.User$recommendationsSentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$recommendationsSentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecommendationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  recommendationsReceived<T extends Prisma.User$recommendationsReceivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$recommendationsReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecommendationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  reactions<T extends Prisma.User$reactionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reactionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  feedActivities<T extends Prisma.User$feedActivitiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$feedActivitiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FeedActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  achievements<T extends Prisma.User$achievementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$achievementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2656,6 +2656,222 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
+ * User.achievements
+ */
+export type User$achievementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Achievement
+   */
+  select?: Prisma.AchievementSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Achievement
+   */
+  omit?: Prisma.AchievementOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AchievementInclude<ExtArgs> | null
+  where?: Prisma.AchievementWhereInput
+  orderBy?: Prisma.AchievementOrderByWithRelationInput | Prisma.AchievementOrderByWithRelationInput[]
+  cursor?: Prisma.AchievementWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AchievementScalarFieldEnum | Prisma.AchievementScalarFieldEnum[]
+}
+
+/**
+ * User.feedActivities
+ */
+export type User$feedActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the FeedActivity
+   */
+  select?: Prisma.FeedActivitySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the FeedActivity
+   */
+  omit?: Prisma.FeedActivityOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FeedActivityInclude<ExtArgs> | null
+  where?: Prisma.FeedActivityWhereInput
+  orderBy?: Prisma.FeedActivityOrderByWithRelationInput | Prisma.FeedActivityOrderByWithRelationInput[]
+  cursor?: Prisma.FeedActivityWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FeedActivityScalarFieldEnum | Prisma.FeedActivityScalarFieldEnum[]
+}
+
+/**
+ * User.friendshipsReceived
+ */
+export type User$friendshipsReceivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Friendship
+   */
+  select?: Prisma.FriendshipSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Friendship
+   */
+  omit?: Prisma.FriendshipOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FriendshipInclude<ExtArgs> | null
+  where?: Prisma.FriendshipWhereInput
+  orderBy?: Prisma.FriendshipOrderByWithRelationInput | Prisma.FriendshipOrderByWithRelationInput[]
+  cursor?: Prisma.FriendshipWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FriendshipScalarFieldEnum | Prisma.FriendshipScalarFieldEnum[]
+}
+
+/**
+ * User.friendshipsSent
+ */
+export type User$friendshipsSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Friendship
+   */
+  select?: Prisma.FriendshipSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Friendship
+   */
+  omit?: Prisma.FriendshipOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FriendshipInclude<ExtArgs> | null
+  where?: Prisma.FriendshipWhereInput
+  orderBy?: Prisma.FriendshipOrderByWithRelationInput | Prisma.FriendshipOrderByWithRelationInput[]
+  cursor?: Prisma.FriendshipWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FriendshipScalarFieldEnum | Prisma.FriendshipScalarFieldEnum[]
+}
+
+/**
+ * User.lists
+ */
+export type User$listsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the List
+   */
+  select?: Prisma.ListSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the List
+   */
+  omit?: Prisma.ListOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ListInclude<ExtArgs> | null
+  where?: Prisma.ListWhereInput
+  orderBy?: Prisma.ListOrderByWithRelationInput | Prisma.ListOrderByWithRelationInput[]
+  cursor?: Prisma.ListWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ListScalarFieldEnum | Prisma.ListScalarFieldEnum[]
+}
+
+/**
+ * User.reactions
+ */
+export type User$reactionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Reaction
+   */
+  select?: Prisma.ReactionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Reaction
+   */
+  omit?: Prisma.ReactionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ReactionInclude<ExtArgs> | null
+  where?: Prisma.ReactionWhereInput
+  orderBy?: Prisma.ReactionOrderByWithRelationInput | Prisma.ReactionOrderByWithRelationInput[]
+  cursor?: Prisma.ReactionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ReactionScalarFieldEnum | Prisma.ReactionScalarFieldEnum[]
+}
+
+/**
+ * User.recommendationsReceived
+ */
+export type User$recommendationsReceivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Recommendation
+   */
+  select?: Prisma.RecommendationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Recommendation
+   */
+  omit?: Prisma.RecommendationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RecommendationInclude<ExtArgs> | null
+  where?: Prisma.RecommendationWhereInput
+  orderBy?: Prisma.RecommendationOrderByWithRelationInput | Prisma.RecommendationOrderByWithRelationInput[]
+  cursor?: Prisma.RecommendationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RecommendationScalarFieldEnum | Prisma.RecommendationScalarFieldEnum[]
+}
+
+/**
+ * User.recommendationsSent
+ */
+export type User$recommendationsSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Recommendation
+   */
+  select?: Prisma.RecommendationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Recommendation
+   */
+  omit?: Prisma.RecommendationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RecommendationInclude<ExtArgs> | null
+  where?: Prisma.RecommendationWhereInput
+  orderBy?: Prisma.RecommendationOrderByWithRelationInput | Prisma.RecommendationOrderByWithRelationInput[]
+  cursor?: Prisma.RecommendationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RecommendationScalarFieldEnum | Prisma.RecommendationScalarFieldEnum[]
+}
+
+/**
+ * User.reviews
+ */
+export type User$reviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Review
+   */
+  select?: Prisma.ReviewSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Review
+   */
+  omit?: Prisma.ReviewOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ReviewInclude<ExtArgs> | null
+  where?: Prisma.ReviewWhereInput
+  orderBy?: Prisma.ReviewOrderByWithRelationInput | Prisma.ReviewOrderByWithRelationInput[]
+  cursor?: Prisma.ReviewWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ReviewScalarFieldEnum | Prisma.ReviewScalarFieldEnum[]
+}
+
+/**
  * User.trackingEntries
  */
 export type User$trackingEntriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2701,222 +2917,6 @@ export type User$watchesArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
   take?: number
   skip?: number
   distinct?: Prisma.WatchScalarFieldEnum | Prisma.WatchScalarFieldEnum[]
-}
-
-/**
- * User.friendshipsSent
- */
-export type User$friendshipsSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Friendship
-   */
-  select?: Prisma.FriendshipSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Friendship
-   */
-  omit?: Prisma.FriendshipOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.FriendshipInclude<ExtArgs> | null
-  where?: Prisma.FriendshipWhereInput
-  orderBy?: Prisma.FriendshipOrderByWithRelationInput | Prisma.FriendshipOrderByWithRelationInput[]
-  cursor?: Prisma.FriendshipWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.FriendshipScalarFieldEnum | Prisma.FriendshipScalarFieldEnum[]
-}
-
-/**
- * User.friendshipsReceived
- */
-export type User$friendshipsReceivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Friendship
-   */
-  select?: Prisma.FriendshipSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Friendship
-   */
-  omit?: Prisma.FriendshipOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.FriendshipInclude<ExtArgs> | null
-  where?: Prisma.FriendshipWhereInput
-  orderBy?: Prisma.FriendshipOrderByWithRelationInput | Prisma.FriendshipOrderByWithRelationInput[]
-  cursor?: Prisma.FriendshipWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.FriendshipScalarFieldEnum | Prisma.FriendshipScalarFieldEnum[]
-}
-
-/**
- * User.reviews
- */
-export type User$reviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Review
-   */
-  select?: Prisma.ReviewSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Review
-   */
-  omit?: Prisma.ReviewOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ReviewInclude<ExtArgs> | null
-  where?: Prisma.ReviewWhereInput
-  orderBy?: Prisma.ReviewOrderByWithRelationInput | Prisma.ReviewOrderByWithRelationInput[]
-  cursor?: Prisma.ReviewWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.ReviewScalarFieldEnum | Prisma.ReviewScalarFieldEnum[]
-}
-
-/**
- * User.lists
- */
-export type User$listsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the List
-   */
-  select?: Prisma.ListSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the List
-   */
-  omit?: Prisma.ListOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ListInclude<ExtArgs> | null
-  where?: Prisma.ListWhereInput
-  orderBy?: Prisma.ListOrderByWithRelationInput | Prisma.ListOrderByWithRelationInput[]
-  cursor?: Prisma.ListWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.ListScalarFieldEnum | Prisma.ListScalarFieldEnum[]
-}
-
-/**
- * User.recommendationsSent
- */
-export type User$recommendationsSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Recommendation
-   */
-  select?: Prisma.RecommendationSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Recommendation
-   */
-  omit?: Prisma.RecommendationOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.RecommendationInclude<ExtArgs> | null
-  where?: Prisma.RecommendationWhereInput
-  orderBy?: Prisma.RecommendationOrderByWithRelationInput | Prisma.RecommendationOrderByWithRelationInput[]
-  cursor?: Prisma.RecommendationWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.RecommendationScalarFieldEnum | Prisma.RecommendationScalarFieldEnum[]
-}
-
-/**
- * User.recommendationsReceived
- */
-export type User$recommendationsReceivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Recommendation
-   */
-  select?: Prisma.RecommendationSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Recommendation
-   */
-  omit?: Prisma.RecommendationOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.RecommendationInclude<ExtArgs> | null
-  where?: Prisma.RecommendationWhereInput
-  orderBy?: Prisma.RecommendationOrderByWithRelationInput | Prisma.RecommendationOrderByWithRelationInput[]
-  cursor?: Prisma.RecommendationWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.RecommendationScalarFieldEnum | Prisma.RecommendationScalarFieldEnum[]
-}
-
-/**
- * User.reactions
- */
-export type User$reactionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Reaction
-   */
-  select?: Prisma.ReactionSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Reaction
-   */
-  omit?: Prisma.ReactionOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ReactionInclude<ExtArgs> | null
-  where?: Prisma.ReactionWhereInput
-  orderBy?: Prisma.ReactionOrderByWithRelationInput | Prisma.ReactionOrderByWithRelationInput[]
-  cursor?: Prisma.ReactionWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.ReactionScalarFieldEnum | Prisma.ReactionScalarFieldEnum[]
-}
-
-/**
- * User.feedActivities
- */
-export type User$feedActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the FeedActivity
-   */
-  select?: Prisma.FeedActivitySelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the FeedActivity
-   */
-  omit?: Prisma.FeedActivityOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.FeedActivityInclude<ExtArgs> | null
-  where?: Prisma.FeedActivityWhereInput
-  orderBy?: Prisma.FeedActivityOrderByWithRelationInput | Prisma.FeedActivityOrderByWithRelationInput[]
-  cursor?: Prisma.FeedActivityWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.FeedActivityScalarFieldEnum | Prisma.FeedActivityScalarFieldEnum[]
-}
-
-/**
- * User.achievements
- */
-export type User$achievementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Achievement
-   */
-  select?: Prisma.AchievementSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Achievement
-   */
-  omit?: Prisma.AchievementOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.AchievementInclude<ExtArgs> | null
-  where?: Prisma.AchievementWhereInput
-  orderBy?: Prisma.AchievementOrderByWithRelationInput | Prisma.AchievementOrderByWithRelationInput[]
-  cursor?: Prisma.AchievementWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.AchievementScalarFieldEnum | Prisma.AchievementScalarFieldEnum[]
 }
 
 /**

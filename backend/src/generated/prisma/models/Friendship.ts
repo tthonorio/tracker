@@ -232,8 +232,8 @@ export type FriendshipWhereInput = {
   status?: Prisma.EnumFriendshipStatusFilter<"Friendship"> | $Enums.FriendshipStatus
   createdAt?: Prisma.DateTimeFilter<"Friendship"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Friendship"> | Date | string
-  sender?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   receiver?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  sender?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type FriendshipOrderByWithRelationInput = {
@@ -243,8 +243,8 @@ export type FriendshipOrderByWithRelationInput = {
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  sender?: Prisma.UserOrderByWithRelationInput
   receiver?: Prisma.UserOrderByWithRelationInput
+  sender?: Prisma.UserOrderByWithRelationInput
 }
 
 export type FriendshipWhereUniqueInput = Prisma.AtLeast<{
@@ -258,8 +258,8 @@ export type FriendshipWhereUniqueInput = Prisma.AtLeast<{
   status?: Prisma.EnumFriendshipStatusFilter<"Friendship"> | $Enums.FriendshipStatus
   createdAt?: Prisma.DateTimeFilter<"Friendship"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Friendship"> | Date | string
-  sender?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   receiver?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  sender?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id" | "senderId_receiverId">
 
 export type FriendshipOrderByWithAggregationInput = {
@@ -292,8 +292,8 @@ export type FriendshipCreateInput = {
   status: $Enums.FriendshipStatus
   createdAt?: Date | string
   updatedAt?: Date | string
-  sender: Prisma.UserCreateNestedOneWithoutFriendshipsSentInput
   receiver: Prisma.UserCreateNestedOneWithoutFriendshipsReceivedInput
+  sender: Prisma.UserCreateNestedOneWithoutFriendshipsSentInput
 }
 
 export type FriendshipUncheckedCreateInput = {
@@ -309,8 +309,8 @@ export type FriendshipUpdateInput = {
   status?: Prisma.EnumFriendshipStatusFieldUpdateOperationsInput | $Enums.FriendshipStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sender?: Prisma.UserUpdateOneRequiredWithoutFriendshipsSentNestedInput
   receiver?: Prisma.UserUpdateOneRequiredWithoutFriendshipsReceivedNestedInput
+  sender?: Prisma.UserUpdateOneRequiredWithoutFriendshipsSentNestedInput
 }
 
 export type FriendshipUncheckedUpdateInput = {
@@ -400,13 +400,6 @@ export type FriendshipSumOrderByAggregateInput = {
   receiverId?: Prisma.SortOrder
 }
 
-export type FriendshipCreateNestedManyWithoutSenderInput = {
-  create?: Prisma.XOR<Prisma.FriendshipCreateWithoutSenderInput, Prisma.FriendshipUncheckedCreateWithoutSenderInput> | Prisma.FriendshipCreateWithoutSenderInput[] | Prisma.FriendshipUncheckedCreateWithoutSenderInput[]
-  connectOrCreate?: Prisma.FriendshipCreateOrConnectWithoutSenderInput | Prisma.FriendshipCreateOrConnectWithoutSenderInput[]
-  createMany?: Prisma.FriendshipCreateManySenderInputEnvelope
-  connect?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
-}
-
 export type FriendshipCreateNestedManyWithoutReceiverInput = {
   create?: Prisma.XOR<Prisma.FriendshipCreateWithoutReceiverInput, Prisma.FriendshipUncheckedCreateWithoutReceiverInput> | Prisma.FriendshipCreateWithoutReceiverInput[] | Prisma.FriendshipUncheckedCreateWithoutReceiverInput[]
   connectOrCreate?: Prisma.FriendshipCreateOrConnectWithoutReceiverInput | Prisma.FriendshipCreateOrConnectWithoutReceiverInput[]
@@ -414,7 +407,7 @@ export type FriendshipCreateNestedManyWithoutReceiverInput = {
   connect?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
 }
 
-export type FriendshipUncheckedCreateNestedManyWithoutSenderInput = {
+export type FriendshipCreateNestedManyWithoutSenderInput = {
   create?: Prisma.XOR<Prisma.FriendshipCreateWithoutSenderInput, Prisma.FriendshipUncheckedCreateWithoutSenderInput> | Prisma.FriendshipCreateWithoutSenderInput[] | Prisma.FriendshipUncheckedCreateWithoutSenderInput[]
   connectOrCreate?: Prisma.FriendshipCreateOrConnectWithoutSenderInput | Prisma.FriendshipCreateOrConnectWithoutSenderInput[]
   createMany?: Prisma.FriendshipCreateManySenderInputEnvelope
@@ -428,18 +421,11 @@ export type FriendshipUncheckedCreateNestedManyWithoutReceiverInput = {
   connect?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
 }
 
-export type FriendshipUpdateManyWithoutSenderNestedInput = {
+export type FriendshipUncheckedCreateNestedManyWithoutSenderInput = {
   create?: Prisma.XOR<Prisma.FriendshipCreateWithoutSenderInput, Prisma.FriendshipUncheckedCreateWithoutSenderInput> | Prisma.FriendshipCreateWithoutSenderInput[] | Prisma.FriendshipUncheckedCreateWithoutSenderInput[]
   connectOrCreate?: Prisma.FriendshipCreateOrConnectWithoutSenderInput | Prisma.FriendshipCreateOrConnectWithoutSenderInput[]
-  upsert?: Prisma.FriendshipUpsertWithWhereUniqueWithoutSenderInput | Prisma.FriendshipUpsertWithWhereUniqueWithoutSenderInput[]
   createMany?: Prisma.FriendshipCreateManySenderInputEnvelope
-  set?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
-  disconnect?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
-  delete?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
   connect?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
-  update?: Prisma.FriendshipUpdateWithWhereUniqueWithoutSenderInput | Prisma.FriendshipUpdateWithWhereUniqueWithoutSenderInput[]
-  updateMany?: Prisma.FriendshipUpdateManyWithWhereWithoutSenderInput | Prisma.FriendshipUpdateManyWithWhereWithoutSenderInput[]
-  deleteMany?: Prisma.FriendshipScalarWhereInput | Prisma.FriendshipScalarWhereInput[]
 }
 
 export type FriendshipUpdateManyWithoutReceiverNestedInput = {
@@ -456,7 +442,7 @@ export type FriendshipUpdateManyWithoutReceiverNestedInput = {
   deleteMany?: Prisma.FriendshipScalarWhereInput | Prisma.FriendshipScalarWhereInput[]
 }
 
-export type FriendshipUncheckedUpdateManyWithoutSenderNestedInput = {
+export type FriendshipUpdateManyWithoutSenderNestedInput = {
   create?: Prisma.XOR<Prisma.FriendshipCreateWithoutSenderInput, Prisma.FriendshipUncheckedCreateWithoutSenderInput> | Prisma.FriendshipCreateWithoutSenderInput[] | Prisma.FriendshipUncheckedCreateWithoutSenderInput[]
   connectOrCreate?: Prisma.FriendshipCreateOrConnectWithoutSenderInput | Prisma.FriendshipCreateOrConnectWithoutSenderInput[]
   upsert?: Prisma.FriendshipUpsertWithWhereUniqueWithoutSenderInput | Prisma.FriendshipUpsertWithWhereUniqueWithoutSenderInput[]
@@ -484,33 +470,22 @@ export type FriendshipUncheckedUpdateManyWithoutReceiverNestedInput = {
   deleteMany?: Prisma.FriendshipScalarWhereInput | Prisma.FriendshipScalarWhereInput[]
 }
 
+export type FriendshipUncheckedUpdateManyWithoutSenderNestedInput = {
+  create?: Prisma.XOR<Prisma.FriendshipCreateWithoutSenderInput, Prisma.FriendshipUncheckedCreateWithoutSenderInput> | Prisma.FriendshipCreateWithoutSenderInput[] | Prisma.FriendshipUncheckedCreateWithoutSenderInput[]
+  connectOrCreate?: Prisma.FriendshipCreateOrConnectWithoutSenderInput | Prisma.FriendshipCreateOrConnectWithoutSenderInput[]
+  upsert?: Prisma.FriendshipUpsertWithWhereUniqueWithoutSenderInput | Prisma.FriendshipUpsertWithWhereUniqueWithoutSenderInput[]
+  createMany?: Prisma.FriendshipCreateManySenderInputEnvelope
+  set?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
+  disconnect?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
+  delete?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
+  connect?: Prisma.FriendshipWhereUniqueInput | Prisma.FriendshipWhereUniqueInput[]
+  update?: Prisma.FriendshipUpdateWithWhereUniqueWithoutSenderInput | Prisma.FriendshipUpdateWithWhereUniqueWithoutSenderInput[]
+  updateMany?: Prisma.FriendshipUpdateManyWithWhereWithoutSenderInput | Prisma.FriendshipUpdateManyWithWhereWithoutSenderInput[]
+  deleteMany?: Prisma.FriendshipScalarWhereInput | Prisma.FriendshipScalarWhereInput[]
+}
+
 export type EnumFriendshipStatusFieldUpdateOperationsInput = {
   set?: $Enums.FriendshipStatus
-}
-
-export type FriendshipCreateWithoutSenderInput = {
-  status: $Enums.FriendshipStatus
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  receiver: Prisma.UserCreateNestedOneWithoutFriendshipsReceivedInput
-}
-
-export type FriendshipUncheckedCreateWithoutSenderInput = {
-  id?: number
-  receiverId: number
-  status: $Enums.FriendshipStatus
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type FriendshipCreateOrConnectWithoutSenderInput = {
-  where: Prisma.FriendshipWhereUniqueInput
-  create: Prisma.XOR<Prisma.FriendshipCreateWithoutSenderInput, Prisma.FriendshipUncheckedCreateWithoutSenderInput>
-}
-
-export type FriendshipCreateManySenderInputEnvelope = {
-  data: Prisma.FriendshipCreateManySenderInput | Prisma.FriendshipCreateManySenderInput[]
-  skipDuplicates?: boolean
 }
 
 export type FriendshipCreateWithoutReceiverInput = {
@@ -538,32 +513,29 @@ export type FriendshipCreateManyReceiverInputEnvelope = {
   skipDuplicates?: boolean
 }
 
-export type FriendshipUpsertWithWhereUniqueWithoutSenderInput = {
+export type FriendshipCreateWithoutSenderInput = {
+  status: $Enums.FriendshipStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  receiver: Prisma.UserCreateNestedOneWithoutFriendshipsReceivedInput
+}
+
+export type FriendshipUncheckedCreateWithoutSenderInput = {
+  id?: number
+  receiverId: number
+  status: $Enums.FriendshipStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type FriendshipCreateOrConnectWithoutSenderInput = {
   where: Prisma.FriendshipWhereUniqueInput
-  update: Prisma.XOR<Prisma.FriendshipUpdateWithoutSenderInput, Prisma.FriendshipUncheckedUpdateWithoutSenderInput>
   create: Prisma.XOR<Prisma.FriendshipCreateWithoutSenderInput, Prisma.FriendshipUncheckedCreateWithoutSenderInput>
 }
 
-export type FriendshipUpdateWithWhereUniqueWithoutSenderInput = {
-  where: Prisma.FriendshipWhereUniqueInput
-  data: Prisma.XOR<Prisma.FriendshipUpdateWithoutSenderInput, Prisma.FriendshipUncheckedUpdateWithoutSenderInput>
-}
-
-export type FriendshipUpdateManyWithWhereWithoutSenderInput = {
-  where: Prisma.FriendshipScalarWhereInput
-  data: Prisma.XOR<Prisma.FriendshipUpdateManyMutationInput, Prisma.FriendshipUncheckedUpdateManyWithoutSenderInput>
-}
-
-export type FriendshipScalarWhereInput = {
-  AND?: Prisma.FriendshipScalarWhereInput | Prisma.FriendshipScalarWhereInput[]
-  OR?: Prisma.FriendshipScalarWhereInput[]
-  NOT?: Prisma.FriendshipScalarWhereInput | Prisma.FriendshipScalarWhereInput[]
-  id?: Prisma.IntFilter<"Friendship"> | number
-  senderId?: Prisma.IntFilter<"Friendship"> | number
-  receiverId?: Prisma.IntFilter<"Friendship"> | number
-  status?: Prisma.EnumFriendshipStatusFilter<"Friendship"> | $Enums.FriendshipStatus
-  createdAt?: Prisma.DateTimeFilter<"Friendship"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Friendship"> | Date | string
+export type FriendshipCreateManySenderInputEnvelope = {
+  data: Prisma.FriendshipCreateManySenderInput | Prisma.FriendshipCreateManySenderInput[]
+  skipDuplicates?: boolean
 }
 
 export type FriendshipUpsertWithWhereUniqueWithoutReceiverInput = {
@@ -582,12 +554,32 @@ export type FriendshipUpdateManyWithWhereWithoutReceiverInput = {
   data: Prisma.XOR<Prisma.FriendshipUpdateManyMutationInput, Prisma.FriendshipUncheckedUpdateManyWithoutReceiverInput>
 }
 
-export type FriendshipCreateManySenderInput = {
-  id?: number
-  receiverId: number
-  status: $Enums.FriendshipStatus
-  createdAt?: Date | string
-  updatedAt?: Date | string
+export type FriendshipScalarWhereInput = {
+  AND?: Prisma.FriendshipScalarWhereInput | Prisma.FriendshipScalarWhereInput[]
+  OR?: Prisma.FriendshipScalarWhereInput[]
+  NOT?: Prisma.FriendshipScalarWhereInput | Prisma.FriendshipScalarWhereInput[]
+  id?: Prisma.IntFilter<"Friendship"> | number
+  senderId?: Prisma.IntFilter<"Friendship"> | number
+  receiverId?: Prisma.IntFilter<"Friendship"> | number
+  status?: Prisma.EnumFriendshipStatusFilter<"Friendship"> | $Enums.FriendshipStatus
+  createdAt?: Prisma.DateTimeFilter<"Friendship"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Friendship"> | Date | string
+}
+
+export type FriendshipUpsertWithWhereUniqueWithoutSenderInput = {
+  where: Prisma.FriendshipWhereUniqueInput
+  update: Prisma.XOR<Prisma.FriendshipUpdateWithoutSenderInput, Prisma.FriendshipUncheckedUpdateWithoutSenderInput>
+  create: Prisma.XOR<Prisma.FriendshipCreateWithoutSenderInput, Prisma.FriendshipUncheckedCreateWithoutSenderInput>
+}
+
+export type FriendshipUpdateWithWhereUniqueWithoutSenderInput = {
+  where: Prisma.FriendshipWhereUniqueInput
+  data: Prisma.XOR<Prisma.FriendshipUpdateWithoutSenderInput, Prisma.FriendshipUncheckedUpdateWithoutSenderInput>
+}
+
+export type FriendshipUpdateManyWithWhereWithoutSenderInput = {
+  where: Prisma.FriendshipScalarWhereInput
+  data: Prisma.XOR<Prisma.FriendshipUpdateManyMutationInput, Prisma.FriendshipUncheckedUpdateManyWithoutSenderInput>
 }
 
 export type FriendshipCreateManyReceiverInput = {
@@ -598,27 +590,12 @@ export type FriendshipCreateManyReceiverInput = {
   updatedAt?: Date | string
 }
 
-export type FriendshipUpdateWithoutSenderInput = {
-  status?: Prisma.EnumFriendshipStatusFieldUpdateOperationsInput | $Enums.FriendshipStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  receiver?: Prisma.UserUpdateOneRequiredWithoutFriendshipsReceivedNestedInput
-}
-
-export type FriendshipUncheckedUpdateWithoutSenderInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  receiverId?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumFriendshipStatusFieldUpdateOperationsInput | $Enums.FriendshipStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type FriendshipUncheckedUpdateManyWithoutSenderInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  receiverId?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumFriendshipStatusFieldUpdateOperationsInput | $Enums.FriendshipStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+export type FriendshipCreateManySenderInput = {
+  id?: number
+  receiverId: number
+  status: $Enums.FriendshipStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type FriendshipUpdateWithoutReceiverInput = {
@@ -644,6 +621,29 @@ export type FriendshipUncheckedUpdateManyWithoutReceiverInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+export type FriendshipUpdateWithoutSenderInput = {
+  status?: Prisma.EnumFriendshipStatusFieldUpdateOperationsInput | $Enums.FriendshipStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  receiver?: Prisma.UserUpdateOneRequiredWithoutFriendshipsReceivedNestedInput
+}
+
+export type FriendshipUncheckedUpdateWithoutSenderInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  receiverId?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumFriendshipStatusFieldUpdateOperationsInput | $Enums.FriendshipStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type FriendshipUncheckedUpdateManyWithoutSenderInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  receiverId?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumFriendshipStatusFieldUpdateOperationsInput | $Enums.FriendshipStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 
 
 export type FriendshipSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -653,8 +653,8 @@ export type FriendshipSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["friendship"]>
 
 export type FriendshipSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -664,8 +664,8 @@ export type FriendshipSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["friendship"]>
 
 export type FriendshipSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -675,8 +675,8 @@ export type FriendshipSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["friendship"]>
 
 export type FriendshipSelectScalar = {
@@ -690,23 +690,23 @@ export type FriendshipSelectScalar = {
 
 export type FriendshipOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "senderId" | "receiverId" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["friendship"]>
 export type FriendshipInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type FriendshipIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type FriendshipIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   receiver?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $FriendshipPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Friendship"
   objects: {
-    sender: Prisma.$UserPayload<ExtArgs>
     receiver: Prisma.$UserPayload<ExtArgs>
+    sender: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1109,8 +1109,8 @@ readonly fields: FriendshipFieldRefs;
  */
 export interface Prisma__FriendshipClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  sender<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   receiver<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  sender<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

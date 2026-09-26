@@ -228,9 +228,9 @@ export type WatchWhereInput = {
   mediaId?: Prisma.IntNullableFilter<"Watch"> | number | null
   episodeId?: Prisma.IntNullableFilter<"Watch"> | number | null
   watchedAt?: Prisma.DateTimeFilter<"Watch"> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  media?: Prisma.XOR<Prisma.MediaNullableScalarRelationFilter, Prisma.MediaWhereInput> | null
   episode?: Prisma.XOR<Prisma.EpisodeNullableScalarRelationFilter, Prisma.EpisodeWhereInput> | null
+  media?: Prisma.XOR<Prisma.MediaNullableScalarRelationFilter, Prisma.MediaWhereInput> | null
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type WatchOrderByWithRelationInput = {
@@ -239,9 +239,9 @@ export type WatchOrderByWithRelationInput = {
   mediaId?: Prisma.SortOrderInput | Prisma.SortOrder
   episodeId?: Prisma.SortOrderInput | Prisma.SortOrder
   watchedAt?: Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
-  media?: Prisma.MediaOrderByWithRelationInput
   episode?: Prisma.EpisodeOrderByWithRelationInput
+  media?: Prisma.MediaOrderByWithRelationInput
+  user?: Prisma.UserOrderByWithRelationInput
 }
 
 export type WatchWhereUniqueInput = Prisma.AtLeast<{
@@ -253,9 +253,9 @@ export type WatchWhereUniqueInput = Prisma.AtLeast<{
   mediaId?: Prisma.IntNullableFilter<"Watch"> | number | null
   episodeId?: Prisma.IntNullableFilter<"Watch"> | number | null
   watchedAt?: Prisma.DateTimeFilter<"Watch"> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  media?: Prisma.XOR<Prisma.MediaNullableScalarRelationFilter, Prisma.MediaWhereInput> | null
   episode?: Prisma.XOR<Prisma.EpisodeNullableScalarRelationFilter, Prisma.EpisodeWhereInput> | null
+  media?: Prisma.XOR<Prisma.MediaNullableScalarRelationFilter, Prisma.MediaWhereInput> | null
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
 export type WatchOrderByWithAggregationInput = {
@@ -284,9 +284,9 @@ export type WatchScalarWhereWithAggregatesInput = {
 
 export type WatchCreateInput = {
   watchedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutWatchesInput
-  media?: Prisma.MediaCreateNestedOneWithoutWatchesInput
   episode?: Prisma.EpisodeCreateNestedOneWithoutWatchesInput
+  media?: Prisma.MediaCreateNestedOneWithoutWatchesInput
+  user: Prisma.UserCreateNestedOneWithoutWatchesInput
 }
 
 export type WatchUncheckedCreateInput = {
@@ -299,9 +299,9 @@ export type WatchUncheckedCreateInput = {
 
 export type WatchUpdateInput = {
   watchedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutWatchesNestedInput
-  media?: Prisma.MediaUpdateOneWithoutWatchesNestedInput
   episode?: Prisma.EpisodeUpdateOneWithoutWatchesNestedInput
+  media?: Prisma.MediaUpdateOneWithoutWatchesNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutWatchesNestedInput
 }
 
 export type WatchUncheckedUpdateInput = {
@@ -516,8 +516,8 @@ export type NullableIntFieldUpdateOperationsInput = {
 
 export type WatchCreateWithoutUserInput = {
   watchedAt?: Date | string
-  media?: Prisma.MediaCreateNestedOneWithoutWatchesInput
   episode?: Prisma.EpisodeCreateNestedOneWithoutWatchesInput
+  media?: Prisma.MediaCreateNestedOneWithoutWatchesInput
 }
 
 export type WatchUncheckedCreateWithoutUserInput = {
@@ -566,8 +566,8 @@ export type WatchScalarWhereInput = {
 
 export type WatchCreateWithoutMediaInput = {
   watchedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutWatchesInput
   episode?: Prisma.EpisodeCreateNestedOneWithoutWatchesInput
+  user: Prisma.UserCreateNestedOneWithoutWatchesInput
 }
 
 export type WatchUncheckedCreateWithoutMediaInput = {
@@ -605,8 +605,8 @@ export type WatchUpdateManyWithWhereWithoutMediaInput = {
 
 export type WatchCreateWithoutEpisodeInput = {
   watchedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutWatchesInput
   media?: Prisma.MediaCreateNestedOneWithoutWatchesInput
+  user: Prisma.UserCreateNestedOneWithoutWatchesInput
 }
 
 export type WatchUncheckedCreateWithoutEpisodeInput = {
@@ -651,8 +651,8 @@ export type WatchCreateManyUserInput = {
 
 export type WatchUpdateWithoutUserInput = {
   watchedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  media?: Prisma.MediaUpdateOneWithoutWatchesNestedInput
   episode?: Prisma.EpisodeUpdateOneWithoutWatchesNestedInput
+  media?: Prisma.MediaUpdateOneWithoutWatchesNestedInput
 }
 
 export type WatchUncheckedUpdateWithoutUserInput = {
@@ -678,8 +678,8 @@ export type WatchCreateManyMediaInput = {
 
 export type WatchUpdateWithoutMediaInput = {
   watchedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutWatchesNestedInput
   episode?: Prisma.EpisodeUpdateOneWithoutWatchesNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutWatchesNestedInput
 }
 
 export type WatchUncheckedUpdateWithoutMediaInput = {
@@ -705,8 +705,8 @@ export type WatchCreateManyEpisodeInput = {
 
 export type WatchUpdateWithoutEpisodeInput = {
   watchedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutWatchesNestedInput
   media?: Prisma.MediaUpdateOneWithoutWatchesNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutWatchesNestedInput
 }
 
 export type WatchUncheckedUpdateWithoutEpisodeInput = {
@@ -731,9 +731,9 @@ export type WatchSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   mediaId?: boolean
   episodeId?: boolean
   watchedAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
   episode?: boolean | Prisma.Watch$episodeArgs<ExtArgs>
+  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["watch"]>
 
 export type WatchSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -742,9 +742,9 @@ export type WatchSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   mediaId?: boolean
   episodeId?: boolean
   watchedAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
   episode?: boolean | Prisma.Watch$episodeArgs<ExtArgs>
+  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["watch"]>
 
 export type WatchSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -753,9 +753,9 @@ export type WatchSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   mediaId?: boolean
   episodeId?: boolean
   watchedAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
   episode?: boolean | Prisma.Watch$episodeArgs<ExtArgs>
+  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["watch"]>
 
 export type WatchSelectScalar = {
@@ -768,27 +768,27 @@ export type WatchSelectScalar = {
 
 export type WatchOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "mediaId" | "episodeId" | "watchedAt", ExtArgs["result"]["watch"]>
 export type WatchInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
   episode?: boolean | Prisma.Watch$episodeArgs<ExtArgs>
+  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type WatchIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
   episode?: boolean | Prisma.Watch$episodeArgs<ExtArgs>
+  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type WatchIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
   episode?: boolean | Prisma.Watch$episodeArgs<ExtArgs>
+  media?: boolean | Prisma.Watch$mediaArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $WatchPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Watch"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs>
-    media: Prisma.$MediaPayload<ExtArgs> | null
     episode: Prisma.$EpisodePayload<ExtArgs> | null
+    media: Prisma.$MediaPayload<ExtArgs> | null
+    user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1190,9 +1190,9 @@ readonly fields: WatchFieldRefs;
  */
 export interface Prisma__WatchClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  media<T extends Prisma.Watch$mediaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Watch$mediaArgs<ExtArgs>>): Prisma.Prisma__MediaClient<runtime.Types.Result.GetResult<Prisma.$MediaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   episode<T extends Prisma.Watch$episodeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Watch$episodeArgs<ExtArgs>>): Prisma.Prisma__EpisodeClient<runtime.Types.Result.GetResult<Prisma.$EpisodePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  media<T extends Prisma.Watch$mediaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Watch$mediaArgs<ExtArgs>>): Prisma.Prisma__MediaClient<runtime.Types.Result.GetResult<Prisma.$MediaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1628,25 +1628,6 @@ export type WatchDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
 }
 
 /**
- * Watch.media
- */
-export type Watch$mediaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Media
-   */
-  select?: Prisma.MediaSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Media
-   */
-  omit?: Prisma.MediaOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.MediaInclude<ExtArgs> | null
-  where?: Prisma.MediaWhereInput
-}
-
-/**
  * Watch.episode
  */
 export type Watch$episodeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1663,6 +1644,25 @@ export type Watch$episodeArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   include?: Prisma.EpisodeInclude<ExtArgs> | null
   where?: Prisma.EpisodeWhereInput
+}
+
+/**
+ * Watch.media
+ */
+export type Watch$mediaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Media
+   */
+  select?: Prisma.MediaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Media
+   */
+  omit?: Prisma.MediaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MediaInclude<ExtArgs> | null
+  where?: Prisma.MediaWhereInput
 }
 
 /**

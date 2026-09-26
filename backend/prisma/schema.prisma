@@ -7,9 +7,182 @@ datasource db {
   provider = "postgresql"
 }
 
-// ─────────────────────────────────────────────
-// Enums
-// ─────────────────────────────────────────────
+model User {
+  id                      Int              @id @default(autoincrement())
+  username                String           @unique
+  email                   String           @unique
+  passwordHash            String
+  profileImage            String?
+  createdAt               DateTime         @default(now())
+  achievements            Achievement[]
+  feedActivities          FeedActivity[]
+  friendshipsReceived     Friendship[]     @relation("FriendshipReceiver")
+  friendshipsSent         Friendship[]     @relation("FriendshipSender")
+  lists                   List[]
+  reactions               Reaction[]
+  recommendationsReceived Recommendation[] @relation("RecommendationReceiver")
+  recommendationsSent     Recommendation[] @relation("RecommendationSender")
+  reviews                 Review[]
+  trackingEntries         TrackingEntry[]
+  watches                 Watch[]
+}
+
+model Media {
+  id              Int              @id @default(autoincrement())
+  tmdbId          Int
+  type            MediaType
+  createdAt       DateTime         @default(now())
+  listItems       ListItem[]
+  recommendations Recommendation[]
+  reviews         Review[]
+  seasons         Season[]
+  trackingEntries TrackingEntry[]
+  watches         Watch[]
+
+  @@unique([tmdbId, type])
+}
+
+model Season {
+  id           Int       @id @default(autoincrement())
+  mediaId      Int
+  tmdbId       Int
+  seasonNumber Int
+  episodes     Episode[]
+  media        Media     @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+
+  @@unique([mediaId, seasonNumber])
+}
+
+model Episode {
+  id            Int     @id @default(autoincrement())
+  seasonId      Int
+  tmdbId        Int
+  episodeNumber Int
+  season        Season  @relation(fields: [seasonId], references: [id], onDelete: Cascade)
+  watches       Watch[]
+
+  @@unique([seasonId, episodeNumber])
+}
+
+model TrackingEntry {
+  id        Int            @id @default(autoincrement())
+  userId    Int
+  mediaId   Int
+  status    TrackingStatus
+  rating    Float?
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  media     Media          @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, mediaId])
+}
+
+model Watch {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  mediaId   Int?
+  episodeId Int?
+  watchedAt DateTime @default(now())
+  episode   Episode? @relation(fields: [episodeId], references: [id], onDelete: Cascade)
+  media     Media?   @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, watchedAt])
+}
+
+model Friendship {
+  id         Int              @id @default(autoincrement())
+  senderId   Int
+  receiverId Int
+  status     FriendshipStatus
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  receiver   User             @relation("FriendshipReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
+  sender     User             @relation("FriendshipSender", fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@unique([senderId, receiverId])
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  mediaId   Int
+  content   String
+  rating    Float?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  media     Media    @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, mediaId])
+}
+
+model Reaction {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  targetType String
+  targetId   Int
+  type       String
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, targetType, targetId, type])
+}
+
+model List {
+  id        Int        @id @default(autoincrement())
+  userId    Int
+  name      String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     ListItem[]
+}
+
+model ListItem {
+  id       Int   @id @default(autoincrement())
+  listId   Int
+  mediaId  Int
+  position Int?
+  list     List  @relation(fields: [listId], references: [id], onDelete: Cascade)
+  media    Media @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+
+  @@unique([listId, mediaId])
+}
+
+model Recommendation {
+  id         Int      @id @default(autoincrement())
+  senderId   Int
+  receiverId Int
+  mediaId    Int
+  createdAt  DateTime @default(now())
+  media      Media    @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+  receiver   User     @relation("RecommendationReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
+  sender     User     @relation("RecommendationSender", fields: [senderId], references: [id], onDelete: Cascade)
+}
+
+model FeedActivity {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  activityType String
+  targetType   String
+  targetId     Int
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+}
+
+model Achievement {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  type       String
+  unlockedAt DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, type])
+}
 
 enum MediaType {
   MOVIE
@@ -29,215 +202,4 @@ enum FriendshipStatus {
   ACCEPTED
   DECLINED
   BLOCKED
-}
-
-// ─────────────────────────────────────────────
-// User
-// ─────────────────────────────────────────────
-
-model User {
-  id           Int      @id @default(autoincrement())
-  username     String   @unique
-  email        String   @unique
-  passwordHash String
-  profileImage String?
-  createdAt    DateTime @default(now())
-
-  trackingEntries TrackingEntry[]
-  watches         Watch[]
-  friendshipsSent Friendship[] @relation("FriendshipSender")
-  friendshipsReceived Friendship[] @relation("FriendshipReceiver")
-  reviews         Review[]
-  lists           List[]
-  recommendationsSent Recommendation[] @relation("RecommendationSender")
-  recommendationsReceived Recommendation[] @relation("RecommendationReceiver")
-  reactions       Reaction[]
-  feedActivities  FeedActivity[]
-  achievements    Achievement[]
-}
-
-// ─────────────────────────────────────────────
-// Media
-// ─────────────────────────────────────────────
-
-model Media {
-  id          Int       @id @default(autoincrement())
-  tmdbId      Int
-  type        MediaType
-  createdAt   DateTime  @default(now())
-
-  seasons          Season[]
-  trackingEntries  TrackingEntry[]
-  watches          Watch[]
-  reviews          Review[]
-  listItems        ListItem[]
-  recommendations  Recommendation[]
-
-  @@unique([tmdbId, type])
-}
-
-// ─────────────────────────────────────────────
-// TV structure
-// ─────────────────────────────────────────────
-
-model Season {
-  id           Int      @id @default(autoincrement())
-  mediaId      Int
-  tmdbId       Int
-  seasonNumber Int
-
-  media    Media     @relation(fields: [mediaId], references: [id], onDelete: Cascade)
-  episodes Episode[]
-
-  @@unique([mediaId, seasonNumber])
-}
-
-model Episode {
-  id            Int      @id @default(autoincrement())
-  seasonId      Int
-  tmdbId        Int
-  episodeNumber Int
-
-  season Season @relation(fields: [seasonId], references: [id], onDelete: Cascade)
-  watches Watch[]
-
-  @@unique([seasonId, episodeNumber])
-}
-
-// ─────────────────────────────────────────────
-// Tracking
-// ─────────────────────────────────────────────
-
-model TrackingEntry {
-  id        Int            @id @default(autoincrement())
-  userId    Int
-  mediaId   Int
-  status    TrackingStatus
-  rating    Float?
-  createdAt DateTime       @default(now())
-  updatedAt DateTime       @updatedAt
-
-  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
-  media Media @relation(fields: [mediaId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, mediaId])
-}
-
-model Watch {
-  id        Int      @id @default(autoincrement())
-  userId    Int
-  mediaId   Int?
-  episodeId Int?
-  watchedAt DateTime @default(now())
-
-  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  media   Media?   @relation(fields: [mediaId], references: [id], onDelete: Cascade)
-  episode Episode? @relation(fields: [episodeId], references: [id], onDelete: Cascade)
-
-  @@index([userId, watchedAt])
-}
-
-// ─────────────────────────────────────────────
-// Social
-// ─────────────────────────────────────────────
-
-model Friendship {
-  id         Int              @id @default(autoincrement())
-  senderId   Int
-  receiverId Int
-  status     FriendshipStatus
-  createdAt  DateTime         @default(now())
-  updatedAt  DateTime         @updatedAt
-
-  sender   User @relation("FriendshipSender", fields: [senderId], references: [id], onDelete: Cascade)
-  receiver User @relation("FriendshipReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
-
-  @@unique([senderId, receiverId])
-}
-
-model Review {
-  id        Int      @id @default(autoincrement())
-  userId    Int
-  mediaId   Int
-  content   String
-  rating    Float?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
-  media Media @relation(fields: [mediaId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, mediaId])
-}
-
-model Reaction {
-  id         Int      @id @default(autoincrement())
-  userId     Int
-  targetType String
-  targetId   Int
-  type       String
-  createdAt  DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, targetType, targetId, type])
-}
-
-model List {
-  id        Int      @id @default(autoincrement())
-  userId    Int
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  user  User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  items ListItem[]
-}
-
-model ListItem {
-  id       Int @id @default(autoincrement())
-  listId   Int
-  mediaId  Int
-  position Int?
-
-  list  List  @relation(fields: [listId], references: [id], onDelete: Cascade)
-  media Media @relation(fields: [mediaId], references: [id], onDelete: Cascade)
-
-  @@unique([listId, mediaId])
-}
-
-model Recommendation {
-  id         Int      @id @default(autoincrement())
-  senderId   Int
-  receiverId Int
-  mediaId    Int
-  createdAt  DateTime @default(now())
-
-  sender   User  @relation("RecommendationSender", fields: [senderId], references: [id], onDelete: Cascade)
-  receiver User  @relation("RecommendationReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
-  media    Media @relation(fields: [mediaId], references: [id], onDelete: Cascade)
-}
-
-model FeedActivity {
-  id         Int      @id @default(autoincrement())
-  userId     Int
-  activityType String
-  targetType String
-  targetId   Int
-  createdAt  DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([userId, createdAt])
-}
-
-model Achievement {
-  id         Int      @id @default(autoincrement())
-  userId     Int
-  type       String
-  unlockedAt DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, type])
 }

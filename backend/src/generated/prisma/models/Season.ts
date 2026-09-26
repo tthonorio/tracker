@@ -220,8 +220,8 @@ export type SeasonWhereInput = {
   mediaId?: Prisma.IntFilter<"Season"> | number
   tmdbId?: Prisma.IntFilter<"Season"> | number
   seasonNumber?: Prisma.IntFilter<"Season"> | number
-  media?: Prisma.XOR<Prisma.MediaScalarRelationFilter, Prisma.MediaWhereInput>
   episodes?: Prisma.EpisodeListRelationFilter
+  media?: Prisma.XOR<Prisma.MediaScalarRelationFilter, Prisma.MediaWhereInput>
 }
 
 export type SeasonOrderByWithRelationInput = {
@@ -229,8 +229,8 @@ export type SeasonOrderByWithRelationInput = {
   mediaId?: Prisma.SortOrder
   tmdbId?: Prisma.SortOrder
   seasonNumber?: Prisma.SortOrder
-  media?: Prisma.MediaOrderByWithRelationInput
   episodes?: Prisma.EpisodeOrderByRelationAggregateInput
+  media?: Prisma.MediaOrderByWithRelationInput
 }
 
 export type SeasonWhereUniqueInput = Prisma.AtLeast<{
@@ -242,8 +242,8 @@ export type SeasonWhereUniqueInput = Prisma.AtLeast<{
   mediaId?: Prisma.IntFilter<"Season"> | number
   tmdbId?: Prisma.IntFilter<"Season"> | number
   seasonNumber?: Prisma.IntFilter<"Season"> | number
-  media?: Prisma.XOR<Prisma.MediaScalarRelationFilter, Prisma.MediaWhereInput>
   episodes?: Prisma.EpisodeListRelationFilter
+  media?: Prisma.XOR<Prisma.MediaScalarRelationFilter, Prisma.MediaWhereInput>
 }, "id" | "mediaId_seasonNumber">
 
 export type SeasonOrderByWithAggregationInput = {
@@ -271,8 +271,8 @@ export type SeasonScalarWhereWithAggregatesInput = {
 export type SeasonCreateInput = {
   tmdbId: number
   seasonNumber: number
-  media: Prisma.MediaCreateNestedOneWithoutSeasonsInput
   episodes?: Prisma.EpisodeCreateNestedManyWithoutSeasonInput
+  media: Prisma.MediaCreateNestedOneWithoutSeasonsInput
 }
 
 export type SeasonUncheckedCreateInput = {
@@ -286,8 +286,8 @@ export type SeasonUncheckedCreateInput = {
 export type SeasonUpdateInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   seasonNumber?: Prisma.IntFieldUpdateOperationsInput | number
-  media?: Prisma.MediaUpdateOneRequiredWithoutSeasonsNestedInput
   episodes?: Prisma.EpisodeUpdateManyWithoutSeasonNestedInput
+  media?: Prisma.MediaUpdateOneRequiredWithoutSeasonsNestedInput
 }
 
 export type SeasonUncheckedUpdateInput = {
@@ -580,8 +580,8 @@ export type SeasonSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   mediaId?: boolean
   tmdbId?: boolean
   seasonNumber?: boolean
-  media?: boolean | Prisma.MediaDefaultArgs<ExtArgs>
   episodes?: boolean | Prisma.Season$episodesArgs<ExtArgs>
+  media?: boolean | Prisma.MediaDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.SeasonCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["season"]>
 
@@ -610,8 +610,8 @@ export type SeasonSelectScalar = {
 
 export type SeasonOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "mediaId" | "tmdbId" | "seasonNumber", ExtArgs["result"]["season"]>
 export type SeasonInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  media?: boolean | Prisma.MediaDefaultArgs<ExtArgs>
   episodes?: boolean | Prisma.Season$episodesArgs<ExtArgs>
+  media?: boolean | Prisma.MediaDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.SeasonCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SeasonIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -624,8 +624,8 @@ export type SeasonIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
 export type $SeasonPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Season"
   objects: {
-    media: Prisma.$MediaPayload<ExtArgs>
     episodes: Prisma.$EpisodePayload<ExtArgs>[]
+    media: Prisma.$MediaPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1026,8 +1026,8 @@ readonly fields: SeasonFieldRefs;
  */
 export interface Prisma__SeasonClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  media<T extends Prisma.MediaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MediaDefaultArgs<ExtArgs>>): Prisma.Prisma__MediaClient<runtime.Types.Result.GetResult<Prisma.$MediaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   episodes<T extends Prisma.Season$episodesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Season$episodesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EpisodePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  media<T extends Prisma.MediaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MediaDefaultArgs<ExtArgs>>): Prisma.Prisma__MediaClient<runtime.Types.Result.GetResult<Prisma.$MediaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

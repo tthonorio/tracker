@@ -212,12 +212,12 @@ export type MediaWhereInput = {
   tmdbId?: Prisma.IntFilter<"Media"> | number
   type?: Prisma.EnumMediaTypeFilter<"Media"> | $Enums.MediaType
   createdAt?: Prisma.DateTimeFilter<"Media"> | Date | string
+  listItems?: Prisma.ListItemListRelationFilter
+  recommendations?: Prisma.RecommendationListRelationFilter
+  reviews?: Prisma.ReviewListRelationFilter
   seasons?: Prisma.SeasonListRelationFilter
   trackingEntries?: Prisma.TrackingEntryListRelationFilter
   watches?: Prisma.WatchListRelationFilter
-  reviews?: Prisma.ReviewListRelationFilter
-  listItems?: Prisma.ListItemListRelationFilter
-  recommendations?: Prisma.RecommendationListRelationFilter
 }
 
 export type MediaOrderByWithRelationInput = {
@@ -225,12 +225,12 @@ export type MediaOrderByWithRelationInput = {
   tmdbId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  listItems?: Prisma.ListItemOrderByRelationAggregateInput
+  recommendations?: Prisma.RecommendationOrderByRelationAggregateInput
+  reviews?: Prisma.ReviewOrderByRelationAggregateInput
   seasons?: Prisma.SeasonOrderByRelationAggregateInput
   trackingEntries?: Prisma.TrackingEntryOrderByRelationAggregateInput
   watches?: Prisma.WatchOrderByRelationAggregateInput
-  reviews?: Prisma.ReviewOrderByRelationAggregateInput
-  listItems?: Prisma.ListItemOrderByRelationAggregateInput
-  recommendations?: Prisma.RecommendationOrderByRelationAggregateInput
 }
 
 export type MediaWhereUniqueInput = Prisma.AtLeast<{
@@ -242,12 +242,12 @@ export type MediaWhereUniqueInput = Prisma.AtLeast<{
   tmdbId?: Prisma.IntFilter<"Media"> | number
   type?: Prisma.EnumMediaTypeFilter<"Media"> | $Enums.MediaType
   createdAt?: Prisma.DateTimeFilter<"Media"> | Date | string
+  listItems?: Prisma.ListItemListRelationFilter
+  recommendations?: Prisma.RecommendationListRelationFilter
+  reviews?: Prisma.ReviewListRelationFilter
   seasons?: Prisma.SeasonListRelationFilter
   trackingEntries?: Prisma.TrackingEntryListRelationFilter
   watches?: Prisma.WatchListRelationFilter
-  reviews?: Prisma.ReviewListRelationFilter
-  listItems?: Prisma.ListItemListRelationFilter
-  recommendations?: Prisma.RecommendationListRelationFilter
 }, "id" | "tmdbId_type">
 
 export type MediaOrderByWithAggregationInput = {
@@ -276,12 +276,12 @@ export type MediaCreateInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
+  listItems?: Prisma.ListItemCreateNestedManyWithoutMediaInput
+  recommendations?: Prisma.RecommendationCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
   seasons?: Prisma.SeasonCreateNestedManyWithoutMediaInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutMediaInput
   watches?: Prisma.WatchCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
-  listItems?: Prisma.ListItemCreateNestedManyWithoutMediaInput
-  recommendations?: Prisma.RecommendationCreateNestedManyWithoutMediaInput
 }
 
 export type MediaUncheckedCreateInput = {
@@ -289,24 +289,24 @@ export type MediaUncheckedCreateInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
+  listItems?: Prisma.ListItemUncheckedCreateNestedManyWithoutMediaInput
+  recommendations?: Prisma.RecommendationUncheckedCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
   seasons?: Prisma.SeasonUncheckedCreateNestedManyWithoutMediaInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutMediaInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
-  listItems?: Prisma.ListItemUncheckedCreateNestedManyWithoutMediaInput
-  recommendations?: Prisma.RecommendationUncheckedCreateNestedManyWithoutMediaInput
 }
 
 export type MediaUpdateInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  listItems?: Prisma.ListItemUpdateManyWithoutMediaNestedInput
+  recommendations?: Prisma.RecommendationUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
   seasons?: Prisma.SeasonUpdateManyWithoutMediaNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutMediaNestedInput
   watches?: Prisma.WatchUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
-  listItems?: Prisma.ListItemUpdateManyWithoutMediaNestedInput
-  recommendations?: Prisma.RecommendationUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaUncheckedUpdateInput = {
@@ -314,12 +314,12 @@ export type MediaUncheckedUpdateInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  listItems?: Prisma.ListItemUncheckedUpdateManyWithoutMediaNestedInput
+  recommendations?: Prisma.RecommendationUncheckedUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
   seasons?: Prisma.SeasonUncheckedUpdateManyWithoutMediaNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutMediaNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
-  listItems?: Prisma.ListItemUncheckedUpdateManyWithoutMediaNestedInput
-  recommendations?: Prisma.RecommendationUncheckedUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaCreateManyInput = {
@@ -482,11 +482,11 @@ export type MediaCreateWithoutSeasonsInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
-  trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutMediaInput
-  watches?: Prisma.WatchCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
   listItems?: Prisma.ListItemCreateNestedManyWithoutMediaInput
   recommendations?: Prisma.RecommendationCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
+  trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutMediaInput
+  watches?: Prisma.WatchCreateNestedManyWithoutMediaInput
 }
 
 export type MediaUncheckedCreateWithoutSeasonsInput = {
@@ -494,11 +494,11 @@ export type MediaUncheckedCreateWithoutSeasonsInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
-  trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutMediaInput
-  watches?: Prisma.WatchUncheckedCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
   listItems?: Prisma.ListItemUncheckedCreateNestedManyWithoutMediaInput
   recommendations?: Prisma.RecommendationUncheckedCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
+  trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutMediaInput
+  watches?: Prisma.WatchUncheckedCreateNestedManyWithoutMediaInput
 }
 
 export type MediaCreateOrConnectWithoutSeasonsInput = {
@@ -521,11 +521,11 @@ export type MediaUpdateWithoutSeasonsInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutMediaNestedInput
-  watches?: Prisma.WatchUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
   listItems?: Prisma.ListItemUpdateManyWithoutMediaNestedInput
   recommendations?: Prisma.RecommendationUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
+  trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutMediaNestedInput
+  watches?: Prisma.WatchUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaUncheckedUpdateWithoutSeasonsInput = {
@@ -533,22 +533,22 @@ export type MediaUncheckedUpdateWithoutSeasonsInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutMediaNestedInput
-  watches?: Prisma.WatchUncheckedUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
   listItems?: Prisma.ListItemUncheckedUpdateManyWithoutMediaNestedInput
   recommendations?: Prisma.RecommendationUncheckedUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
+  trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutMediaNestedInput
+  watches?: Prisma.WatchUncheckedUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaCreateWithoutTrackingEntriesInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
-  seasons?: Prisma.SeasonCreateNestedManyWithoutMediaInput
-  watches?: Prisma.WatchCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
   listItems?: Prisma.ListItemCreateNestedManyWithoutMediaInput
   recommendations?: Prisma.RecommendationCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
+  seasons?: Prisma.SeasonCreateNestedManyWithoutMediaInput
+  watches?: Prisma.WatchCreateNestedManyWithoutMediaInput
 }
 
 export type MediaUncheckedCreateWithoutTrackingEntriesInput = {
@@ -556,11 +556,11 @@ export type MediaUncheckedCreateWithoutTrackingEntriesInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
-  seasons?: Prisma.SeasonUncheckedCreateNestedManyWithoutMediaInput
-  watches?: Prisma.WatchUncheckedCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
   listItems?: Prisma.ListItemUncheckedCreateNestedManyWithoutMediaInput
   recommendations?: Prisma.RecommendationUncheckedCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
+  seasons?: Prisma.SeasonUncheckedCreateNestedManyWithoutMediaInput
+  watches?: Prisma.WatchUncheckedCreateNestedManyWithoutMediaInput
 }
 
 export type MediaCreateOrConnectWithoutTrackingEntriesInput = {
@@ -583,11 +583,11 @@ export type MediaUpdateWithoutTrackingEntriesInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  seasons?: Prisma.SeasonUpdateManyWithoutMediaNestedInput
-  watches?: Prisma.WatchUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
   listItems?: Prisma.ListItemUpdateManyWithoutMediaNestedInput
   recommendations?: Prisma.RecommendationUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
+  seasons?: Prisma.SeasonUpdateManyWithoutMediaNestedInput
+  watches?: Prisma.WatchUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaUncheckedUpdateWithoutTrackingEntriesInput = {
@@ -595,22 +595,22 @@ export type MediaUncheckedUpdateWithoutTrackingEntriesInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  seasons?: Prisma.SeasonUncheckedUpdateManyWithoutMediaNestedInput
-  watches?: Prisma.WatchUncheckedUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
   listItems?: Prisma.ListItemUncheckedUpdateManyWithoutMediaNestedInput
   recommendations?: Prisma.RecommendationUncheckedUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
+  seasons?: Prisma.SeasonUncheckedUpdateManyWithoutMediaNestedInput
+  watches?: Prisma.WatchUncheckedUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaCreateWithoutWatchesInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
-  seasons?: Prisma.SeasonCreateNestedManyWithoutMediaInput
-  trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
   listItems?: Prisma.ListItemCreateNestedManyWithoutMediaInput
   recommendations?: Prisma.RecommendationCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
+  seasons?: Prisma.SeasonCreateNestedManyWithoutMediaInput
+  trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutMediaInput
 }
 
 export type MediaUncheckedCreateWithoutWatchesInput = {
@@ -618,11 +618,11 @@ export type MediaUncheckedCreateWithoutWatchesInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
-  seasons?: Prisma.SeasonUncheckedCreateNestedManyWithoutMediaInput
-  trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
   listItems?: Prisma.ListItemUncheckedCreateNestedManyWithoutMediaInput
   recommendations?: Prisma.RecommendationUncheckedCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
+  seasons?: Prisma.SeasonUncheckedCreateNestedManyWithoutMediaInput
+  trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutMediaInput
 }
 
 export type MediaCreateOrConnectWithoutWatchesInput = {
@@ -645,11 +645,11 @@ export type MediaUpdateWithoutWatchesInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  seasons?: Prisma.SeasonUpdateManyWithoutMediaNestedInput
-  trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
   listItems?: Prisma.ListItemUpdateManyWithoutMediaNestedInput
   recommendations?: Prisma.RecommendationUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
+  seasons?: Prisma.SeasonUpdateManyWithoutMediaNestedInput
+  trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaUncheckedUpdateWithoutWatchesInput = {
@@ -657,22 +657,22 @@ export type MediaUncheckedUpdateWithoutWatchesInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  seasons?: Prisma.SeasonUncheckedUpdateManyWithoutMediaNestedInput
-  trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
   listItems?: Prisma.ListItemUncheckedUpdateManyWithoutMediaNestedInput
   recommendations?: Prisma.RecommendationUncheckedUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
+  seasons?: Prisma.SeasonUncheckedUpdateManyWithoutMediaNestedInput
+  trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaCreateWithoutReviewsInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
+  listItems?: Prisma.ListItemCreateNestedManyWithoutMediaInput
+  recommendations?: Prisma.RecommendationCreateNestedManyWithoutMediaInput
   seasons?: Prisma.SeasonCreateNestedManyWithoutMediaInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutMediaInput
   watches?: Prisma.WatchCreateNestedManyWithoutMediaInput
-  listItems?: Prisma.ListItemCreateNestedManyWithoutMediaInput
-  recommendations?: Prisma.RecommendationCreateNestedManyWithoutMediaInput
 }
 
 export type MediaUncheckedCreateWithoutReviewsInput = {
@@ -680,11 +680,11 @@ export type MediaUncheckedCreateWithoutReviewsInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
+  listItems?: Prisma.ListItemUncheckedCreateNestedManyWithoutMediaInput
+  recommendations?: Prisma.RecommendationUncheckedCreateNestedManyWithoutMediaInput
   seasons?: Prisma.SeasonUncheckedCreateNestedManyWithoutMediaInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutMediaInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutMediaInput
-  listItems?: Prisma.ListItemUncheckedCreateNestedManyWithoutMediaInput
-  recommendations?: Prisma.RecommendationUncheckedCreateNestedManyWithoutMediaInput
 }
 
 export type MediaCreateOrConnectWithoutReviewsInput = {
@@ -707,11 +707,11 @@ export type MediaUpdateWithoutReviewsInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  listItems?: Prisma.ListItemUpdateManyWithoutMediaNestedInput
+  recommendations?: Prisma.RecommendationUpdateManyWithoutMediaNestedInput
   seasons?: Prisma.SeasonUpdateManyWithoutMediaNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutMediaNestedInput
   watches?: Prisma.WatchUpdateManyWithoutMediaNestedInput
-  listItems?: Prisma.ListItemUpdateManyWithoutMediaNestedInput
-  recommendations?: Prisma.RecommendationUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaUncheckedUpdateWithoutReviewsInput = {
@@ -719,22 +719,22 @@ export type MediaUncheckedUpdateWithoutReviewsInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  listItems?: Prisma.ListItemUncheckedUpdateManyWithoutMediaNestedInput
+  recommendations?: Prisma.RecommendationUncheckedUpdateManyWithoutMediaNestedInput
   seasons?: Prisma.SeasonUncheckedUpdateManyWithoutMediaNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutMediaNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutMediaNestedInput
-  listItems?: Prisma.ListItemUncheckedUpdateManyWithoutMediaNestedInput
-  recommendations?: Prisma.RecommendationUncheckedUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaCreateWithoutListItemsInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
+  recommendations?: Prisma.RecommendationCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
   seasons?: Prisma.SeasonCreateNestedManyWithoutMediaInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutMediaInput
   watches?: Prisma.WatchCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
-  recommendations?: Prisma.RecommendationCreateNestedManyWithoutMediaInput
 }
 
 export type MediaUncheckedCreateWithoutListItemsInput = {
@@ -742,11 +742,11 @@ export type MediaUncheckedCreateWithoutListItemsInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
+  recommendations?: Prisma.RecommendationUncheckedCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
   seasons?: Prisma.SeasonUncheckedCreateNestedManyWithoutMediaInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutMediaInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
-  recommendations?: Prisma.RecommendationUncheckedCreateNestedManyWithoutMediaInput
 }
 
 export type MediaCreateOrConnectWithoutListItemsInput = {
@@ -769,11 +769,11 @@ export type MediaUpdateWithoutListItemsInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  recommendations?: Prisma.RecommendationUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
   seasons?: Prisma.SeasonUpdateManyWithoutMediaNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutMediaNestedInput
   watches?: Prisma.WatchUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
-  recommendations?: Prisma.RecommendationUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaUncheckedUpdateWithoutListItemsInput = {
@@ -781,22 +781,22 @@ export type MediaUncheckedUpdateWithoutListItemsInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  recommendations?: Prisma.RecommendationUncheckedUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
   seasons?: Prisma.SeasonUncheckedUpdateManyWithoutMediaNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutMediaNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
-  recommendations?: Prisma.RecommendationUncheckedUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaCreateWithoutRecommendationsInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
+  listItems?: Prisma.ListItemCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
   seasons?: Prisma.SeasonCreateNestedManyWithoutMediaInput
   trackingEntries?: Prisma.TrackingEntryCreateNestedManyWithoutMediaInput
   watches?: Prisma.WatchCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutMediaInput
-  listItems?: Prisma.ListItemCreateNestedManyWithoutMediaInput
 }
 
 export type MediaUncheckedCreateWithoutRecommendationsInput = {
@@ -804,11 +804,11 @@ export type MediaUncheckedCreateWithoutRecommendationsInput = {
   tmdbId: number
   type: $Enums.MediaType
   createdAt?: Date | string
+  listItems?: Prisma.ListItemUncheckedCreateNestedManyWithoutMediaInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
   seasons?: Prisma.SeasonUncheckedCreateNestedManyWithoutMediaInput
   trackingEntries?: Prisma.TrackingEntryUncheckedCreateNestedManyWithoutMediaInput
   watches?: Prisma.WatchUncheckedCreateNestedManyWithoutMediaInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutMediaInput
-  listItems?: Prisma.ListItemUncheckedCreateNestedManyWithoutMediaInput
 }
 
 export type MediaCreateOrConnectWithoutRecommendationsInput = {
@@ -831,11 +831,11 @@ export type MediaUpdateWithoutRecommendationsInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  listItems?: Prisma.ListItemUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
   seasons?: Prisma.SeasonUpdateManyWithoutMediaNestedInput
   trackingEntries?: Prisma.TrackingEntryUpdateManyWithoutMediaNestedInput
   watches?: Prisma.WatchUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutMediaNestedInput
-  listItems?: Prisma.ListItemUpdateManyWithoutMediaNestedInput
 }
 
 export type MediaUncheckedUpdateWithoutRecommendationsInput = {
@@ -843,11 +843,11 @@ export type MediaUncheckedUpdateWithoutRecommendationsInput = {
   tmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  listItems?: Prisma.ListItemUncheckedUpdateManyWithoutMediaNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
   seasons?: Prisma.SeasonUncheckedUpdateManyWithoutMediaNestedInput
   trackingEntries?: Prisma.TrackingEntryUncheckedUpdateManyWithoutMediaNestedInput
   watches?: Prisma.WatchUncheckedUpdateManyWithoutMediaNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutMediaNestedInput
-  listItems?: Prisma.ListItemUncheckedUpdateManyWithoutMediaNestedInput
 }
 
 
@@ -856,21 +856,21 @@ export type MediaUncheckedUpdateWithoutRecommendationsInput = {
  */
 
 export type MediaCountOutputType = {
+  listItems: number
+  recommendations: number
+  reviews: number
   seasons: number
   trackingEntries: number
   watches: number
-  reviews: number
-  listItems: number
-  recommendations: number
 }
 
 export type MediaCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  listItems?: boolean | MediaCountOutputTypeCountListItemsArgs
+  recommendations?: boolean | MediaCountOutputTypeCountRecommendationsArgs
+  reviews?: boolean | MediaCountOutputTypeCountReviewsArgs
   seasons?: boolean | MediaCountOutputTypeCountSeasonsArgs
   trackingEntries?: boolean | MediaCountOutputTypeCountTrackingEntriesArgs
   watches?: boolean | MediaCountOutputTypeCountWatchesArgs
-  reviews?: boolean | MediaCountOutputTypeCountReviewsArgs
-  listItems?: boolean | MediaCountOutputTypeCountListItemsArgs
-  recommendations?: boolean | MediaCountOutputTypeCountRecommendationsArgs
 }
 
 /**
@@ -881,6 +881,27 @@ export type MediaCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extens
    * Select specific fields to fetch from the MediaCountOutputType
    */
   select?: Prisma.MediaCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * MediaCountOutputType without action
+ */
+export type MediaCountOutputTypeCountListItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ListItemWhereInput
+}
+
+/**
+ * MediaCountOutputType without action
+ */
+export type MediaCountOutputTypeCountRecommendationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RecommendationWhereInput
+}
+
+/**
+ * MediaCountOutputType without action
+ */
+export type MediaCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ReviewWhereInput
 }
 
 /**
@@ -904,39 +925,18 @@ export type MediaCountOutputTypeCountWatchesArgs<ExtArgs extends runtime.Types.E
   where?: Prisma.WatchWhereInput
 }
 
-/**
- * MediaCountOutputType without action
- */
-export type MediaCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ReviewWhereInput
-}
-
-/**
- * MediaCountOutputType without action
- */
-export type MediaCountOutputTypeCountListItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ListItemWhereInput
-}
-
-/**
- * MediaCountOutputType without action
- */
-export type MediaCountOutputTypeCountRecommendationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.RecommendationWhereInput
-}
-
 
 export type MediaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   tmdbId?: boolean
   type?: boolean
   createdAt?: boolean
+  listItems?: boolean | Prisma.Media$listItemsArgs<ExtArgs>
+  recommendations?: boolean | Prisma.Media$recommendationsArgs<ExtArgs>
+  reviews?: boolean | Prisma.Media$reviewsArgs<ExtArgs>
   seasons?: boolean | Prisma.Media$seasonsArgs<ExtArgs>
   trackingEntries?: boolean | Prisma.Media$trackingEntriesArgs<ExtArgs>
   watches?: boolean | Prisma.Media$watchesArgs<ExtArgs>
-  reviews?: boolean | Prisma.Media$reviewsArgs<ExtArgs>
-  listItems?: boolean | Prisma.Media$listItemsArgs<ExtArgs>
-  recommendations?: boolean | Prisma.Media$recommendationsArgs<ExtArgs>
   _count?: boolean | Prisma.MediaCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["media"]>
 
@@ -963,12 +963,12 @@ export type MediaSelectScalar = {
 
 export type MediaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tmdbId" | "type" | "createdAt", ExtArgs["result"]["media"]>
 export type MediaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  listItems?: boolean | Prisma.Media$listItemsArgs<ExtArgs>
+  recommendations?: boolean | Prisma.Media$recommendationsArgs<ExtArgs>
+  reviews?: boolean | Prisma.Media$reviewsArgs<ExtArgs>
   seasons?: boolean | Prisma.Media$seasonsArgs<ExtArgs>
   trackingEntries?: boolean | Prisma.Media$trackingEntriesArgs<ExtArgs>
   watches?: boolean | Prisma.Media$watchesArgs<ExtArgs>
-  reviews?: boolean | Prisma.Media$reviewsArgs<ExtArgs>
-  listItems?: boolean | Prisma.Media$listItemsArgs<ExtArgs>
-  recommendations?: boolean | Prisma.Media$recommendationsArgs<ExtArgs>
   _count?: boolean | Prisma.MediaCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type MediaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -977,12 +977,12 @@ export type MediaIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type $MediaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Media"
   objects: {
+    listItems: Prisma.$ListItemPayload<ExtArgs>[]
+    recommendations: Prisma.$RecommendationPayload<ExtArgs>[]
+    reviews: Prisma.$ReviewPayload<ExtArgs>[]
     seasons: Prisma.$SeasonPayload<ExtArgs>[]
     trackingEntries: Prisma.$TrackingEntryPayload<ExtArgs>[]
     watches: Prisma.$WatchPayload<ExtArgs>[]
-    reviews: Prisma.$ReviewPayload<ExtArgs>[]
-    listItems: Prisma.$ListItemPayload<ExtArgs>[]
-    recommendations: Prisma.$RecommendationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1383,12 +1383,12 @@ readonly fields: MediaFieldRefs;
  */
 export interface Prisma__MediaClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  listItems<T extends Prisma.Media$listItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$listItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ListItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  recommendations<T extends Prisma.Media$recommendationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$recommendationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecommendationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reviews<T extends Prisma.Media$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   seasons<T extends Prisma.Media$seasonsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$seasonsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SeasonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trackingEntries<T extends Prisma.Media$trackingEntriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$trackingEntriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackingEntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   watches<T extends Prisma.Media$watchesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$watchesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  reviews<T extends Prisma.Media$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  listItems<T extends Prisma.Media$listItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$listItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ListItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  recommendations<T extends Prisma.Media$recommendationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$recommendationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecommendationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1815,6 +1815,78 @@ export type MediaDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
 }
 
 /**
+ * Media.listItems
+ */
+export type Media$listItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ListItem
+   */
+  select?: Prisma.ListItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ListItem
+   */
+  omit?: Prisma.ListItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ListItemInclude<ExtArgs> | null
+  where?: Prisma.ListItemWhereInput
+  orderBy?: Prisma.ListItemOrderByWithRelationInput | Prisma.ListItemOrderByWithRelationInput[]
+  cursor?: Prisma.ListItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ListItemScalarFieldEnum | Prisma.ListItemScalarFieldEnum[]
+}
+
+/**
+ * Media.recommendations
+ */
+export type Media$recommendationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Recommendation
+   */
+  select?: Prisma.RecommendationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Recommendation
+   */
+  omit?: Prisma.RecommendationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RecommendationInclude<ExtArgs> | null
+  where?: Prisma.RecommendationWhereInput
+  orderBy?: Prisma.RecommendationOrderByWithRelationInput | Prisma.RecommendationOrderByWithRelationInput[]
+  cursor?: Prisma.RecommendationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RecommendationScalarFieldEnum | Prisma.RecommendationScalarFieldEnum[]
+}
+
+/**
+ * Media.reviews
+ */
+export type Media$reviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Review
+   */
+  select?: Prisma.ReviewSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Review
+   */
+  omit?: Prisma.ReviewOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ReviewInclude<ExtArgs> | null
+  where?: Prisma.ReviewWhereInput
+  orderBy?: Prisma.ReviewOrderByWithRelationInput | Prisma.ReviewOrderByWithRelationInput[]
+  cursor?: Prisma.ReviewWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ReviewScalarFieldEnum | Prisma.ReviewScalarFieldEnum[]
+}
+
+/**
  * Media.seasons
  */
 export type Media$seasonsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1884,78 +1956,6 @@ export type Media$watchesArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   distinct?: Prisma.WatchScalarFieldEnum | Prisma.WatchScalarFieldEnum[]
-}
-
-/**
- * Media.reviews
- */
-export type Media$reviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Review
-   */
-  select?: Prisma.ReviewSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Review
-   */
-  omit?: Prisma.ReviewOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ReviewInclude<ExtArgs> | null
-  where?: Prisma.ReviewWhereInput
-  orderBy?: Prisma.ReviewOrderByWithRelationInput | Prisma.ReviewOrderByWithRelationInput[]
-  cursor?: Prisma.ReviewWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.ReviewScalarFieldEnum | Prisma.ReviewScalarFieldEnum[]
-}
-
-/**
- * Media.listItems
- */
-export type Media$listItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the ListItem
-   */
-  select?: Prisma.ListItemSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the ListItem
-   */
-  omit?: Prisma.ListItemOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ListItemInclude<ExtArgs> | null
-  where?: Prisma.ListItemWhereInput
-  orderBy?: Prisma.ListItemOrderByWithRelationInput | Prisma.ListItemOrderByWithRelationInput[]
-  cursor?: Prisma.ListItemWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.ListItemScalarFieldEnum | Prisma.ListItemScalarFieldEnum[]
-}
-
-/**
- * Media.recommendations
- */
-export type Media$recommendationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Recommendation
-   */
-  select?: Prisma.RecommendationSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Recommendation
-   */
-  omit?: Prisma.RecommendationOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.RecommendationInclude<ExtArgs> | null
-  where?: Prisma.RecommendationWhereInput
-  orderBy?: Prisma.RecommendationOrderByWithRelationInput | Prisma.RecommendationOrderByWithRelationInput[]
-  cursor?: Prisma.RecommendationWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.RecommendationScalarFieldEnum | Prisma.RecommendationScalarFieldEnum[]
 }
 
 /**
