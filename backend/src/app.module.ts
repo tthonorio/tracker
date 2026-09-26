@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { MediaModule } from './media/media.module.js';
+import { PrismaModule } from './prisma/prisma.module.js';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { MediaModule } from './media/media.module.js';
       isGlobal: true,
     }),
     MediaModule,
+    PrismaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
