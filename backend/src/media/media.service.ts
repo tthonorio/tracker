@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-
+import { MediaType } from '../generated/prisma/client.js';
+import { PrismaService } from '../prisma/prisma.service.js';
 import { MediaSearchResult } from './media-search-result.interface.js';
 import {
   MediaDetails,
@@ -10,7 +11,10 @@ import {
 
 @Injectable()
 export class MediaService {
-  constructor(private readonly configService: ConfigService) {}
+  constructor(
+    private readonly configService: ConfigService,
+    private readonly prisma: PrismaService,
+  ) {}
 
   async search(query: string): Promise<MediaSearchResult[]> {
     const apiKey = this.configService.get<string>('TMDB_API_KEY');
@@ -80,6 +84,20 @@ export class MediaService {
 
     const movie = await response.json();
 
+    await this.prisma.media.upsert({
+      where: {
+        tmdbId_type: {
+          tmdbId: id,
+          type: MediaType.MOVIE,
+        },
+      },
+      update: {},
+      create: {
+        tmdbId: id,
+        type: MediaType.MOVIE,
+      },
+    });
+
     return {
       id: movie.id,
       type: 'movie',
@@ -124,6 +142,20 @@ export class MediaService {
     }
 
     const tv = await response.json();
+
+    await this.prisma.media.upsert({
+      where: {
+        tmdbId_type: {
+          tmdbId: id,
+          type: MediaType.TV,
+        },
+      },
+      update: {},
+      create: {
+        tmdbId: id,
+        type: MediaType.TV,
+      },
+    });
 
     return {
       id: tv.id,

@@ -2,6 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ConfigService } from '@nestjs/config';
 
 import { MediaService } from './media.service.js';
+import { PrismaService } from '../prisma/prisma.service.js';
+import { MediaType } from '../generated/prisma/client.js';
 
 describe('MediaService', () => {
   let service: MediaService;
@@ -10,7 +12,18 @@ describe('MediaService', () => {
     get: vi.fn().mockReturnValue('test-api-key'),
   };
 
+  const prismaService = {
+    media: {
+      upsert: vi.fn(),
+    },
+  };
+
   beforeEach(async () => {
+    vi.restoreAllMocks();
+
+    configService.get.mockReturnValue('test-api-key');
+    prismaService.media.upsert.mockReset();
+
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         MediaService,
@@ -18,13 +31,14 @@ describe('MediaService', () => {
           provide: ConfigService,
           useValue: configService,
         },
+        {
+          provide: PrismaService,
+          useValue: prismaService,
+        },
       ],
     }).compile();
 
     service = module.get<MediaService>(MediaService);
-
-    vi.restoreAllMocks();
-    configService.get.mockReturnValue('test-api-key');
   });
 
   it('should be defined', () => {
@@ -214,6 +228,48 @@ describe('MediaService', () => {
     });
   });
 
+  it('should persist movie details in the local database', async () => {
+    const tmdbMovie = {
+      id: 157336,
+      title: 'Interstellar',
+      original_title: 'Interstellar',
+      overview: 'The adventures of a group of explorers in space.',
+      poster_path: '/interstellar.jpg',
+      backdrop_path: '/interstellar-backdrop.jpg',
+      release_date: '2014-11-05',
+      genres: [],
+      original_language: 'en',
+      production_countries: [],
+      vote_average: 8.5,
+      vote_count: 41200,
+      tagline: null,
+      homepage: null,
+      runtime: 169,
+    };
+
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+      new Response(JSON.stringify(tmdbMovie), {
+        status: 200,
+      }),
+    );
+
+    await service.getMovieDetails(157336);
+
+    expect(prismaService.media.upsert).toHaveBeenCalledWith({
+      where: {
+        tmdbId_type: {
+          tmdbId: 157336,
+          type: MediaType.MOVIE,
+        },
+      },
+      update: {},
+      create: {
+        tmdbId: 157336,
+        type: MediaType.MOVIE,
+      },
+    });
+  });
+
   it('should return normalized TV details', async () => {
     const tmdbTv = {
       id: 212171,
@@ -312,6 +368,53 @@ describe('MediaService', () => {
           posterPath: '/season1.jpg',
         },
       ],
+    });
+  });
+
+  it('should persist TV details in the local database', async () => {
+    const tmdbTv = {
+      id: 212171,
+      name: 'Interstellar Ella',
+      original_name: 'Interstellar Ella',
+      overview: 'A space TV show.',
+      poster_path: '/ella.jpg',
+      backdrop_path: '/ella-backdrop.jpg',
+      first_air_date: '2022-10-31',
+      genres: [],
+      original_language: 'nl',
+      production_countries: [],
+      vote_average: 5,
+      vote_count: 2,
+      tagline: null,
+      homepage: null,
+      last_air_date: '2023-07-24',
+      status: 'Returning Series',
+      number_of_seasons: 1,
+      number_of_episodes: 52,
+      episode_run_time: [11],
+      seasons: [],
+    };
+
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+      new Response(JSON.stringify(tmdbTv), {
+        status: 200,
+      }),
+    );
+
+    await service.getTvDetails(212171);
+
+    expect(prismaService.media.upsert).toHaveBeenCalledWith({
+      where: {
+        tmdbId_type: {
+          tmdbId: 212171,
+          type: MediaType.TV,
+        },
+      },
+      update: {},
+      create: {
+        tmdbId: 212171,
+        type: MediaType.TV,
+      },
     });
   });
 
