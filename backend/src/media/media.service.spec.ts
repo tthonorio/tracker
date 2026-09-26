@@ -16,13 +16,42 @@ describe('MediaService', () => {
     media: {
       upsert: vi.fn(),
     },
+    season: {
+      upsert: vi.fn(),
+    },
+    episode: {
+      upsert: vi.fn(),
+    },
   };
 
   beforeEach(async () => {
     vi.restoreAllMocks();
 
     configService.get.mockReturnValue('test-api-key');
+
     prismaService.media.upsert.mockReset();
+    prismaService.season.upsert.mockReset();
+    prismaService.episode.upsert.mockReset();
+
+    prismaService.media.upsert.mockResolvedValue({
+      id: 1,
+      tmdbId: 212171,
+      type: MediaType.TV,
+    });
+
+    prismaService.season.upsert.mockResolvedValue({
+      id: 10,
+      mediaId: 1,
+      tmdbId: 312349,
+      seasonNumber: 1,
+    });
+
+    prismaService.episode.upsert.mockResolvedValue({
+      id: 100,
+      seasonId: 10,
+      tmdbId: 400001,
+      episodeNumber: 1,
+    });
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -307,21 +336,46 @@ describe('MediaService', () => {
           name: 'Season 1',
           overview: '',
           air_date: '2022-10-31',
-          episode_count: 52,
+          episode_count: 1,
           season_number: 1,
           poster_path: '/season1.jpg',
         },
       ],
     };
 
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue(
-      new Response(JSON.stringify(tmdbTv), {
-        status: 200,
-        headers: {
-          'Content-Type': 'application/json',
+    const tmdbSeason = {
+      id: 312349,
+      name: 'Season 1',
+      overview: '',
+      air_date: '2022-10-31',
+      episode_count: 1,
+      season_number: 1,
+      poster_path: '/season1.jpg',
+      episodes: [
+        {
+          id: 400001,
+          episode_number: 1,
         },
-      }),
-    );
+      ],
+    };
+
+    vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify(tmdbTv), {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }),
+      )
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify(tmdbSeason), {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }),
+      );
 
     const result = await service.getTvDetails(212171);
 
@@ -363,7 +417,7 @@ describe('MediaService', () => {
           name: 'Season 1',
           overview: '',
           airDate: '2022-10-31',
-          episodeCount: 52,
+          episodeCount: 1,
           seasonNumber: 1,
           posterPath: '/season1.jpg',
         },
@@ -371,7 +425,7 @@ describe('MediaService', () => {
     });
   });
 
-  it('should persist TV details in the local database', async () => {
+  it('should persist TV seasons and episodes in the local database', async () => {
     const tmdbTv = {
       id: 212171,
       name: 'Interstellar Ella',
@@ -390,16 +444,54 @@ describe('MediaService', () => {
       last_air_date: '2023-07-24',
       status: 'Returning Series',
       number_of_seasons: 1,
-      number_of_episodes: 52,
+      number_of_episodes: 1,
       episode_run_time: [11],
-      seasons: [],
+      seasons: [
+        {
+          id: 312349,
+          season_number: 1,
+        },
+      ],
     };
 
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue(
-      new Response(JSON.stringify(tmdbTv), {
-        status: 200,
-      }),
-    );
+    const tmdbSeason = {
+      id: 312349,
+      episodes: [
+        {
+          id: 400001,
+          episode_number: 1,
+        },
+        {
+          id: 400002,
+          episode_number: 2,
+        },
+      ],
+    };
+
+    prismaService.media.upsert.mockResolvedValue({
+      id: 1,
+      tmdbId: 212171,
+      type: MediaType.TV,
+    });
+
+    prismaService.season.upsert.mockResolvedValue({
+      id: 10,
+      mediaId: 1,
+      tmdbId: 312349,
+      seasonNumber: 1,
+    });
+
+    vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify(tmdbTv), {
+          status: 200,
+        }),
+      )
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify(tmdbSeason), {
+          status: 200,
+        }),
+      );
 
     await service.getTvDetails(212171);
 
@@ -414,6 +506,57 @@ describe('MediaService', () => {
       create: {
         tmdbId: 212171,
         type: MediaType.TV,
+      },
+    });
+
+    expect(prismaService.season.upsert).toHaveBeenCalledWith({
+      where: {
+        mediaId_seasonNumber: {
+          mediaId: 1,
+          seasonNumber: 1,
+        },
+      },
+      update: {
+        tmdbId: 312349,
+      },
+      create: {
+        mediaId: 1,
+        tmdbId: 312349,
+        seasonNumber: 1,
+      },
+    });
+
+    expect(prismaService.episode.upsert).toHaveBeenNthCalledWith(1, {
+      where: {
+        seasonId_episodeNumber: {
+          seasonId: 10,
+          episodeNumber: 1,
+        },
+      },
+      update: {
+        tmdbId: 400001,
+      },
+      create: {
+        seasonId: 10,
+        tmdbId: 400001,
+        episodeNumber: 1,
+      },
+    });
+
+    expect(prismaService.episode.upsert).toHaveBeenNthCalledWith(2, {
+      where: {
+        seasonId_episodeNumber: {
+          seasonId: 10,
+          episodeNumber: 2,
+        },
+      },
+      update: {
+        tmdbId: 400002,
+      },
+      create: {
+        seasonId: 10,
+        tmdbId: 400002,
+        episodeNumber: 2,
       },
     });
   });

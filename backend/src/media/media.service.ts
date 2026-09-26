@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+
 import { MediaType } from '../generated/prisma/client.js';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { MediaSearchResult } from './media-search-result.interface.js';
 import {
-  MediaDetails,
   MovieDetails,
   TvDetails,
 } from './media-details.interface.js';
@@ -143,7 +143,7 @@ export class MediaService {
 
     const tv = await response.json();
 
-    await this.prisma.media.upsert({
+    const media = await this.prisma.media.upsert({
       where: {
         tmdbId_type: {
           tmdbId: id,
@@ -156,6 +156,60 @@ export class MediaService {
         type: MediaType.TV,
       },
     });
+
+    for (const season of tv.seasons ?? []) {
+      if (season.season_number < 0) {
+        continue;
+      }
+
+      const seasonResponse = await fetch(
+        `https://api.themoviedb.org/3/tv/${id}/season/${season.season_number}?api_key=${apiKey}&language=en-US`,
+      );
+
+      if (!seasonResponse.ok) {
+        throw new Error(
+          `TMDB season request failed: ${seasonResponse.status}`,
+        );
+      }
+
+      const seasonData = await seasonResponse.json();
+
+      const savedSeason = await this.prisma.season.upsert({
+        where: {
+          mediaId_seasonNumber: {
+            mediaId: media.id,
+            seasonNumber: season.season_number,
+          },
+        },
+        update: {
+          tmdbId: season.id,
+        },
+        create: {
+          mediaId: media.id,
+          tmdbId: season.id,
+          seasonNumber: season.season_number,
+        },
+      });
+
+      for (const episode of seasonData.episodes ?? []) {
+        await this.prisma.episode.upsert({
+          where: {
+            seasonId_episodeNumber: {
+              seasonId: savedSeason.id,
+              episodeNumber: episode.episode_number,
+            },
+          },
+          update: {
+            tmdbId: episode.id,
+          },
+          create: {
+            seasonId: savedSeason.id,
+            tmdbId: episode.id,
+            episodeNumber: episode.episode_number,
+          },
+        });
+      }
+    }
 
     return {
       id: tv.id,
